@@ -18,7 +18,7 @@ This setup has only been tested with Ubuntu 18.04, but should work with other OS
 
 #### Elasticsearch Installation
 
-!!! note
+!!! info
     Follow the detailed installation instructions on the official [elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html)
 
 Edit `/etc/elasticsearch/elasticsearch.yml`
