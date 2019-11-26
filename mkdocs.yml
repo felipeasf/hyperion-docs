@@ -1,0 +1,21 @@
+site_name: Hyperion
+
+markdown_extensions:
+  - admonition
+
+nav:
+    - Home: index.md
+    - Getting Started: get_started.md
+    - Install: install.md
+    - Docker: docker.md
+    - Roadmap: roadmap.md
+    - About: about.md
+
+#theme: readthedocs
+theme:
+  name: 'material'
+  palette:
+    primary: 'Blue Grey'
+    accent: 'Blue Grey'
+  logo:
+    icon: 'history'
