@@ -85,7 +85,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#installation" tabindex="1" class="md-skip">
+      <a href="#getting-started" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -261,6 +261,14 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -369,18 +377,23 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#setup-indices-and-aliases" class="md-nav__link">
     Setup Indices and Aliases
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#api-reference" class="md-nav__link">
     API Reference
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -431,18 +444,6 @@
   </li>
 
     
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../about/" title="About" class="md-nav__link">
-      About
-    </a>
-  </li>
-
-    
   </ul>
 </nav>
                   </div>
@@ -464,6 +465,14 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -572,18 +581,23 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#setup-indices-and-aliases" class="md-nav__link">
     Setup Indices and Aliases
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#api-reference" class="md-nav__link">
     API Reference
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -606,8 +620,9 @@
                   <a href="https://github.com/felipeasf/hyperion-docs/edit/master/docs/install.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="installation">Installation</h1>
-<h2 id="dependencies">Dependencies</h2>
+                <h1 id="getting-started">Getting Started</h1>
+<h2 id="installation">Installation</h2>
+<h3 id="dependencies">Dependencies</h3>
 <p>This setup has only been tested with Ubuntu 18.04, but should work with other OS versions too</p>
 <ul>
 <li><a href="https://www.elastic.co/downloads/elasticsearch">Elasticsearch 7.4.X</a></li>
@@ -617,10 +632,11 @@
 <li><a href="http://pm2.keymetrics.io/docs/usage/quick-start/">PM2</a></li>
 <li>Nodeos 1.8.4 w/ state_history_plugin and chain_api_plugin</li>
 </ul>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The indexer requires redis, pm2 and node.js to be on the same machine. Other dependencies might be installed on other machines, preferably over a very high speed and low latency network. Indexing speed will vary greatly depending on this configuration.</p>
-</blockquote>
-<h3 id="elasticsearch-installation">Elasticsearch Installation</h3>
+</div>
+<h4 id="elasticsearch-installation">Elasticsearch Installation</h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Follow the detailed installation instructions on the official <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html">elasticsearch documentation</a></p>
@@ -671,7 +687,7 @@ sudo systemctl enable elasticsearch
 }
 </code></pre>
 
-<h3 id="rabbitmq-installation">RabbitMQ Installation</h3>
+<h4 id="rabbitmq-installation">RabbitMQ Installation</h4>
 <p><code>https://www.rabbitmq.com/install-debian.html#installation-methods</code></p>
 <pre><code class="bash">sudo apt install rabbitmq-server
 sudo rabbitmq-plugins enable rabbitmq_management
@@ -682,7 +698,7 @@ sudo rabbitmqctl set_permissions -p /hyperion my_user &quot;.*&quot; &quot;.*&qu
 </code></pre>
 
 <p>Check access to the WebUI <code>http://localhost:15672</code></p>
-<h3 id="redis-installation">Redis Installation</h3>
+<h4 id="redis-installation">Redis Installation</h4>
 <pre><code class="bash">sudo apt install redis-server
 </code></pre>
 
@@ -690,17 +706,17 @@ sudo rabbitmqctl set_permissions -p /hyperion my_user &quot;.*&quot; &quot;.*&qu
 <pre><code class="bash">sudo systemctl restart redis.service
 </code></pre>
 
-<h3 id="nodejs">NodeJS</h3>
+<h4 id="nodejs">NodeJS</h4>
 <pre><code class="bash">curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
 </code></pre>
 
-<h3 id="pm2">PM2</h3>
+<h4 id="pm2">PM2</h4>
 <pre><code class="bash">sudo npm install pm2@latest -g
 sudo pm2 startup
 </code></pre>
 
-<h3 id="nodeos-configini">nodeos config.ini</h3>
+<h4 id="nodeos-configini">nodeos config.ini</h4>
 <pre><code>state-history-dir = &quot;state-history&quot;
 trace-history = true
 chain-state-history = true
@@ -708,7 +724,7 @@ state-history-endpoint = 127.0.0.1:8080
 plugin = eosio::state_history_plugin
 </code></pre>
 
-<h3 id="kibana-installation">Kibana Installation</h3>
+<h4 id="kibana-installation">Kibana Installation</h4>
 <pre><code class="bash">wget https://artifacts.elastic.co/downloads/kibana/kibana-7.4.0-amd64.deb
 sudo apt install ./kibana-7.4.0-amd64.deb
 sudo systemctl enable kibana
@@ -719,14 +735,14 @@ sudo systemctl enable kibana
 <p class="admonition-title">Note</p>
 <p>Check for the latest version on the <a href="https://www.elastic.co/downloads/kibana">official website</a></p>
 </div>
-<h3 id="hyperion-indexer">Hyperion Indexer</h3>
-<h4 id="1-clone-install-packages">1. Clone &amp; Install packages</h4>
+<h4 id="hyperion-indexer">Hyperion Indexer</h4>
+<h5 id="1-clone-install-packages">1. Clone &amp; Install packages</h5>
 <pre><code class="bash">git clone https://github.com/eosrio/Hyperion-History-API.git
 cd Hyperion-History-API
 npm install
 </code></pre>
 
-<h4 id="2-edit-configs">2. Edit configs</h4>
+<h5 id="2-edit-configs">2. Edit configs</h5>
 <pre><code>cp example-ecosystem.config.js ecosystem.config.js
 nano ecosystem.config.js
 
@@ -795,18 +811,18 @@ INDEX_DELTAS: 'true',                  // index common table deltas (see delta o
 INDEX_ALL_DELTAS: 'false'              // index all table deltas (WARNING)
 </code></pre>
 
-<h4 id="3-starting">3. Starting</h4>
+<h5 id="3-starting">3. Starting</h5>
 <p><code>pm2 start --only Indexer --update-env
  pm2 logs Indexer</code></p>
-<h4 id="4-stopping">4. Stopping</h4>
+<h5 id="4-stopping">4. Stopping</h5>
 <p>Stop reading and wait for queues to flush
  <code>pm2 trigger Indexer stop</code></p>
 <p>Force stop
  <code>pm2 stop Indexer</code></p>
-<h4 id="5-starting-the-api-node">5. Starting the API node</h4>
+<h5 id="5-starting-the-api-node">5. Starting the API node</h5>
 <p><code>pm2 start --only API --update-env
  pm2 logs API</code></p>
-<h2 id="setup-indices-and-aliases">Setup Indices and Aliases</h2>
+<h3 id="setup-indices-and-aliases">Setup Indices and Aliases</h3>
 <p>Load templates first by starting the Hyperion Indexer in preview mode <code>PREVIEW: 'true'</code></p>
 <p>Indices and aliases are created automatically using the <code>CREATE_INDICES</code> option (set it to your version suffix e.g, v1, v2, v3)
 If you want to create them manually, use the commands bellow on the kibana dev console</p>
@@ -861,7 +877,7 @@ BLOCK_PREFETCH
 INDEX_PREFETCH
 </code></pre>
 
-<h2 id="api-reference">API Reference</h2>
+<h3 id="api-reference">API Reference</h3>
 <p>Documentation is automatically generated by Swagger/OpenAPI.</p>
 <p>Example: <a href="https://eos.hyperion.eosrio.io/v2/docs">OpenAPI Docs</a></p>
                 
