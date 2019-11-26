@@ -3,6 +3,10 @@ site_name: Hyperion
 markdown_extensions:
   - admonition
 
+# Repository
+repo_name: 'felipeasf/hyperion-docs'
+repo_url: 'https://github.com/felipeasf/hyperion-docs'
+
 nav:
     - Home: index.md
     - Getting Started: get_started.md
