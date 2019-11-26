@@ -21,14 +21,15 @@ This setup has only been tested with Ubuntu 18.04, but should work with other OS
 !!! info
     Follow the detailed installation instructions on the official [elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html)
 
-Edit `/etc/elasticsearch/elasticsearch.yml`
+##### 1. Edit `/etc/elasticsearch/elasticsearch.yml`
 
 ```
 cluster.name: myCluster
 bootstrap.memory_lock: true
 ```
 
-Edit `/etc/elasticsearch/jvm.options`
+##### 2. Edit `/etc/elasticsearch/jvm.options`
+
 ```
 # Set your heap size, avoid allocating more than 31GB, even if you have enought RAM.
 # Test on your specific machine by changing -Xmx32g in the following command:
@@ -37,9 +38,15 @@ Edit `/etc/elasticsearch/jvm.options`
 -Xmx16g
 ```
 
-Disable swap on /etc/fstab
+##### 3. Disable swap
 
-Allow memlock:
+* run `swapoff -a` this will immediately disable swap
+* remove any swap entry from /etc/fstab
+
+!!! tip
+    Identify configured swap devices and files with cat /proc/swaps
+
+##### 4. Allow memlock
 run `sudo systemctl edit elasticsearch` and add the following lines
 
 
@@ -48,7 +55,7 @@ run `sudo systemctl edit elasticsearch` and add the following lines
 LimitMEMLOCK=infinity
 ```
 
-Start elasticsearch and check the logs (verify if the memory lock was successful)
+##### 5. Start elasticsearch and check the logs (verify if the memory lock was successful)
 
 ```bash
 sudo service elasticsearch start
@@ -56,7 +63,9 @@ sudo less /var/log/elasticsearch/myCluster.log
 sudo systemctl enable elasticsearch
 ```
 
-Test the REST API `curl http://localhost:9200`
+##### 6. Test the REST API
+
+`curl http://localhost:9200`
 
 ```
 {
@@ -80,44 +89,101 @@ Test the REST API `curl http://localhost:9200`
 
 #### RabbitMQ Installation
 
-`https://www.rabbitmq.com/install-debian.html#installation-methods`
+!!! info
+    Follow the detailed installation instructions on the official [RabbitMQ documentation](https://www.rabbitmq.com/install-debian.html#installation-methods)
+
+##### 1. Enable the WebUI
 
 ```bash
-sudo apt install rabbitmq-server
 sudo rabbitmq-plugins enable rabbitmq_management
-sudo rabbitmqctl add_vhost /hyperion
-sudo rabbitmqctl add_user my_user my_password
-sudo rabbitmqctl set_user_tags my_user administrator
-sudo rabbitmqctl set_permissions -p /hyperion my_user ".*" ".*" ".*"
 ```
 
-Check access to the WebUI `http://localhost:15672`
+##### 2. Add vhost
+```bash
+sudo rabbitmqctl add_vhost /hyperion
+```
+
+##### 2. Create a user and password
+```bash
+sudo rabbitmqctl add_user {my_user} {my_password}
+```
+##### 3. Set the user as administrator
+```bash
+sudo rabbitmqctl set_user_tags {my_user} administrator
+```
+
+##### 4. Set the user permissions to the vhost
+```bash
+sudo rabbitmqctl set_permissions -p /hyperion {my_user} ".*" ".*" ".*"
+```
+
+##### 5. Check access to the WebUI
+
+[http://localhost:15672](http://localhost:15672)
 
 #### Redis Installation
 
+##### 1. Install
 ```bash
 sudo apt install redis-server
 ```
 
-Edit `/etc/redis/redis.conf` and change supervised to `systemd`
+##### 2. Edit `/etc/redis/redis.conf`
 
+!!! note
+    By default, redis binds to the localhost address. You need to edit
+    the config file if you want to listen to other network.
+
+##### 3. Change supervised to `systemd`
 ```bash
 sudo systemctl restart redis.service
 ```
 
 #### NodeJS
 
+##### 1. Install the nodejs source
 ```bash
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+```
+
+##### 2. Install
+```bash
 sudo apt-get install -y nodejs
 ```
 
 #### PM2
 
+##### 1. Install
 ```bash
 sudo npm install pm2@latest -g
+```
+
+##### 2. Run
+```bash
 sudo pm2 startup
 ```
+
+#### Kibana Installation
+
+!!! note
+    Check for the latest version on the [official website](https://www.elastic.co/downloads/kibana)
+
+##### 1. Get the binary
+```bash
+wget https://artifacts.elastic.co/downloads/kibana/kibana-7.4.0-amd64.deb
+```
+##### 2. install
+```bash
+sudo apt install ./kibana-7.4.0-amd64.deb
+```
+
+##### 3. Change supervised to `systemd`
+```bash
+sudo systemctl enable kibana
+```
+
+##### 4. Open and test Kibana
+[http://localhost:5601](http://localhost:5601)
 
 #### nodeos config.ini
 ```
@@ -127,19 +193,6 @@ chain-state-history = true
 state-history-endpoint = 127.0.0.1:8080
 plugin = eosio::state_history_plugin
 ```
-
-#### Kibana Installation
-
-```bash
-wget https://artifacts.elastic.co/downloads/kibana/kibana-7.4.0-amd64.deb
-sudo apt install ./kibana-7.4.0-amd64.deb
-sudo systemctl enable kibana
-```
-
-Open and test Kibana on `http://localhost:5601`
-
-!!! note
-    Check for the latest version on the [official website](https://www.elastic.co/downloads/kibana)
 
 #### Hyperion Indexer
 
@@ -221,28 +274,28 @@ ENABLE_INDEXING: 'true',               // enable elasticsearch indexing
 INDEX_DELTAS: 'true',                  // index common table deltas (see delta on definitions/mappings)
 INDEX_ALL_DELTAS: 'false'              // index all table deltas (WARNING)
 ```
- 
+
 ##### 3. Starting
- 
+
  ```
  pm2 start --only Indexer --update-env
  pm2 logs Indexer
  ```
- 
+
 ##### 4. Stopping
- 
+
  Stop reading and wait for queues to flush
  ```
  pm2 trigger Indexer stop
  ```
- 
+
  Force stop
  ```
  pm2 stop Indexer
  ```
- 
+
 ##### 5. Starting the API node
- 
+
  ```
  pm2 start --only API --update-env
  pm2 logs API
