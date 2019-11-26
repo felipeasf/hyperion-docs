@@ -13,7 +13,6 @@ nav:
     - Docker: docker.md
     - Data Structure: data.md
     - Roadmap: roadmap.md
-    - About: about.md
 
 #theme: readthedocs
 theme:
