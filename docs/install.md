@@ -87,6 +87,23 @@ sudo systemctl enable elasticsearch
 }
 ```
 
+The Default user and password is:
+```
+user: elastic
+password: changeme
+```
+
+You can change the password via the API, like this:
+```
+curl -X POST "localhost:9200/_security/user/elastic/_password?pretty" -H 'Content-Type: application/json' -d'
+{
+  "password" : "new_password"
+}'
+
+
+```
+
+
 #### RabbitMQ Installation
 
 !!! info
