@@ -544,27 +544,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#3-starting" class="md-nav__link">
-    3. Starting
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-stopping" class="md-nav__link">
-    4. Stopping
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-starting-the-api-node" class="md-nav__link">
-    5. Starting the API node
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -578,6 +557,13 @@
           <li class="md-nav__item">
   <a href="#setup-indices-and-aliases" class="md-nav__link">
     Setup Indices and Aliases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-and-stop" class="md-nav__link">
+    Start and Stop
   </a>
   
 </li>
@@ -945,27 +931,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#3-starting" class="md-nav__link">
-    3. Starting
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-stopping" class="md-nav__link">
-    4. Stopping
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-starting-the-api-node" class="md-nav__link">
-    5. Starting the API node
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -979,6 +944,13 @@
           <li class="md-nav__item">
   <a href="#setup-indices-and-aliases" class="md-nav__link">
     Setup Indices and Aliases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-and-stop" class="md-nav__link">
+    Start and Stop
   </a>
   
 </li>
@@ -1267,17 +1239,6 @@ INDEX_DELTAS: 'true',                  // index common table deltas (see delta o
 INDEX_ALL_DELTAS: 'false'              // index all table deltas (WARNING)
 </code></pre>
 
-<h5 id="3-starting">3. Starting</h5>
-<p><code>pm2 start --only Indexer --update-env
- pm2 logs Indexer</code></p>
-<h5 id="4-stopping">4. Stopping</h5>
-<p>Stop reading and wait for queues to flush
- <code>pm2 trigger Indexer stop</code></p>
-<p>Force stop
- <code>pm2 stop Indexer</code></p>
-<h5 id="5-starting-the-api-node">5. Starting the API node</h5>
-<p><code>pm2 start --only API --update-env
- pm2 logs API</code></p>
 <h3 id="setup-indices-and-aliases">Setup Indices and Aliases</h3>
 <p>Load templates first by starting the Hyperion Indexer in preview mode <code>PREVIEW: 'true'</code></p>
 <p>Indices and aliases are created automatically using the <code>CREATE_INDICES</code> option (set it to your version suffix e.g, v1, v2, v3)
@@ -1331,6 +1292,25 @@ ES_AD_IDX_QUEUES
 READ_PREFETCH
 BLOCK_PREFETCH
 INDEX_PREFETCH
+</code></pre>
+
+<h3 id="start-and-stop">Start and Stop</h3>
+<p>Start indexing</p>
+<pre><code>pm2 start --only Indexer --update-env
+pm2 logs Indexer
+</code></pre>
+
+<p>Stop reading and wait for queues to flush</p>
+<pre><code>pm2 trigger Indexer stop
+</code></pre>
+
+<p>Force stop</p>
+<pre><code>pm2 stop Indexer
+</code></pre>
+
+<p>Starting the API node</p>
+<pre><code>pm2 start --only API --update-env
+pm2 logs API
 </code></pre>
 
 <h3 id="api-reference">API Reference</h3>
