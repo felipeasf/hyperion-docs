@@ -292,32 +292,6 @@ INDEX_DELTAS: 'true',                  // index common table deltas (see delta o
 INDEX_ALL_DELTAS: 'false'              // index all table deltas (WARNING)
 ```
 
-##### 3. Starting
-
- ```
- pm2 start --only Indexer --update-env
- pm2 logs Indexer
- ```
-
-##### 4. Stopping
-
- Stop reading and wait for queues to flush
- ```
- pm2 trigger Indexer stop
- ```
-
- Force stop
- ```
- pm2 stop Indexer
- ```
-
-##### 5. Starting the API node
-
- ```
- pm2 start --only API --update-env
- pm2 logs API
- ```
-
 ### Setup Indices and Aliases
 
 Load templates first by starting the Hyperion Indexer in preview mode `PREVIEW: 'true'`
@@ -378,6 +352,30 @@ ES_AD_IDX_QUEUES
 READ_PREFETCH
 BLOCK_PREFETCH
 INDEX_PREFETCH
+```
+
+### Start and Stop
+
+Start indexing
+```
+pm2 start --only Indexer --update-env
+pm2 logs Indexer
+```
+
+Stop reading and wait for queues to flush
+```
+pm2 trigger Indexer stop
+```
+
+Force stop
+```
+pm2 stop Indexer
+```
+
+Starting the API node
+```
+pm2 start --only API --update-env
+pm2 logs API
 ```
 
 ### API Reference
