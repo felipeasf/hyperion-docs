@@ -1090,6 +1090,20 @@ sudo systemctl enable elasticsearch
 }
 </code></pre>
 
+<p>The Default user and password is:</p>
+<pre><code>user: elastic
+password: changeme
+</code></pre>
+
+<p>You can change the password via the API, like this:</p>
+<pre><code>curl -X POST &quot;localhost:9200/_security/user/elastic/_password?pretty&quot; -H 'Content-Type: application/json' -d'
+{
+  &quot;password&quot; : &quot;new_password&quot;
+}'
+
+
+</code></pre>
+
 <h4 id="rabbitmq-installation">RabbitMQ Installation</h4>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
