@@ -9,6 +9,7 @@ repo_url: 'https://github.com/felipeasf/hyperion-docs'
 
 nav:
     - Home: index.md
+    - System Requirements: system_req.md
     - Getting Started: install.md
     - Docker: docker.md
     - Data Structure: data.md
