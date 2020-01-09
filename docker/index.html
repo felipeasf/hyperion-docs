@@ -347,6 +347,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kibana" class="md-nav__link">
+    Kibana
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rabbitmq" class="md-nav__link">
+    RabbitMQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hyperion-api" class="md-nav__link">
+    Hyperion API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#troubleshooting" class="md-nav__link">
     Troubleshooting
   </a>
@@ -411,6 +445,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kibana" class="md-nav__link">
+    Kibana
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rabbitmq" class="md-nav__link">
+    RabbitMQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hyperion-api" class="md-nav__link">
+    Hyperion API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#troubleshooting" class="md-nav__link">
     Troubleshooting
   </a>
@@ -448,6 +516,17 @@ for the nodeos address</li>
 <li>Change passwords in docker-compose.yml file</li>
 <li>Run <code>docker-compose up</code></li>
 </ol>
+<h2 id="usage">Usage</h2>
+<h3 id="kibana">Kibana</h3>
+<p>Access <a href="http://localhost:5601/">http://localhost:5601/</a></p>
+<h3 id="rabbitmq">RabbitMQ</h3>
+<p>Access <a href="http://127.0.0.1:15672/">http://127.0.0.1:15672/</a></p>
+<h3 id="hyperion-api">Hyperion API</h3>
+<p>Access <a href="http://127.0.0.1:7000/v2/history/get_actions">http://127.0.0.1:7000/v2/history/get_actions</a></p>
+<p>or</p>
+<pre><code>curl http://127.0.0.1:7000/v2/history/get_actions
+</code></pre>
+
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>If you're having problems accesing Kibana or using elasticsearch api, you could disable the xpack security
 on the docker-compose.yml setting it to false:</p>

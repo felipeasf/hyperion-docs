@@ -1238,6 +1238,7 @@ nano connections.json
   },
   &quot;elasticsearch&quot;: {
     &quot;host&quot;: &quot;127.0.0.1:9200&quot;, // Elasticsearch HTTP API Endpoint
+    &quot;ingest_nodes&quot;: [&quot;hyperion-elastic:9200&quot;],
     &quot;user&quot;: &quot;elastic&quot;,
     &quot;pass&quot;: &quot;password&quot;
   },
@@ -1247,12 +1248,16 @@ nano connections.json
   },
   &quot;chains&quot;: {
     &quot;eos&quot;: { // Chain name (must match on the ecosystem file)
+      &quot;name&quot;: &quot;EOS Mainnet&quot;,
+      &quot;chain_id&quot;: &quot;aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906&quot;,
       &quot;http&quot;: &quot;http://127.0.0.1:8888&quot;, // Nodeos Chain API Endpoint
-      &quot;ship&quot;: &quot;ws://127.0.0.1:8080&quot; // Nodeos State History Endpoint
+      &quot;ship&quot;: &quot;ws://127.0.0.1:8080&quot;, // Nodeos State History Endpoint
+      &quot;WS_ROUTER_PORT&quot;: 7001
     },
     &quot;other_chain&quot;: {...}
   }
 }
+
 </code></pre>
 
 <p>ecosystem.config.js Reference</p>
