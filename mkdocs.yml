@@ -11,8 +11,11 @@ nav:
     - Home: index.md
     - System Requirements: system_req.md
     - Getting Started: install.md
-    - Docker: docker.md
     - Data Structure: data.md
+    - Queries: queries.md
+    - Kibana: kibana.md
+    - Stream Client: stream_client.md
+    - Docker: docker.md
     - Roadmap: roadmap.md
 
 #theme: readthedocs

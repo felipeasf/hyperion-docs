@@ -1,8 +1,9 @@
 # Hyperion Docker
 
-## INSTALL
+## Dependencies
+- `docker` and `docker-compose`
 
-1. Install `docker` and `docker-compose`
-2. Edit connections.json file and change {nodeos-ip} and {state-history-ip}
-3. Change passwords in docker-compose.yml file
+## INSTALL
+1. Edit connections.json file and change http://host.docker.internal:8888 and ws://host.docker.internal:8080
+2. Change passwords in docker-compose.yml file
 3. Run `docker-compose up`
