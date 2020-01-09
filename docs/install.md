@@ -242,6 +242,7 @@ connections.json Reference
   },
   "elasticsearch": {
     "host": "127.0.0.1:9200", // Elasticsearch HTTP API Endpoint
+    "ingest_nodes": ["hyperion-elastic:9200"],
     "user": "elastic",
     "pass": "password"
   },
@@ -251,12 +252,16 @@ connections.json Reference
   },
   "chains": {
     "eos": { // Chain name (must match on the ecosystem file)
+      "name": "EOS Mainnet",
+      "chain_id": "aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906",
       "http": "http://127.0.0.1:8888", // Nodeos Chain API Endpoint
-      "ship": "ws://127.0.0.1:8080" // Nodeos State History Endpoint
+      "ship": "ws://127.0.0.1:8080", // Nodeos State History Endpoint
+      "WS_ROUTER_PORT": 7001
     },
     "other_chain": {...}
   }
 }
+
 ```
 
 ecosystem.config.js Reference
