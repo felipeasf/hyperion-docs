@@ -346,6 +346,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+      
       
       
       
@@ -403,6 +410,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+      
       
       
       
@@ -429,10 +443,16 @@
 </ul>
 <h2 id="install">INSTALL</h2>
 <ol>
-<li>Edit connections.json file and change http://host.docker.internal:8888 and ws://host.docker.internal:8080</li>
+<li>Edit connections.json file and change http://host.docker.internal:8888 and ws://host.docker.internal:8080
+for the nodeos address</li>
 <li>Change passwords in docker-compose.yml file</li>
 <li>Run <code>docker-compose up</code></li>
 </ol>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>If you're having problems accesing Kibana or using elasticsearch api, you could disable the xpack security
+on the docker-compose.yml setting it to false:</p>
+<pre><code>xpack.security.enabled=false
+</code></pre>
                 
                   
                 
