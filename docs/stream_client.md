@@ -95,6 +95,8 @@ client.streamActions({
 {ADICIONAR LISTA DE FILTROS??}
 
 #### 3. Handling Data
+To handle data from queues, 
+
 ```
 client.onData = async (data, ack) => {
     {code here}
@@ -114,3 +116,7 @@ client.onData = async (data, ack) => {
             }
         }
 ```
+
+#### 4. Usage Examples
+
+???
