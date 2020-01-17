@@ -12,7 +12,7 @@ nav:
     - System Requirements: system_req.md
     - Getting Started: install.md
     - Data Structure: data.md
-    - Queries: queries.md
+    - API: api.md
     - Kibana: kibana.md
     - Stream Client: stream_client.md
     - Docker: docker.md

@@ -41,7 +41,22 @@ If you can't access, check your credentials on your config file.
 3. Click on `Create index pattern`
  
     [![kibana](img/kibana3.png)](img/kibana3.png)
+    
+4. Enter desired index pattern and click on `> Next step`
+ 
+    [![kibana](img/kibana4.png)](img/kibana4.png)
+ 
+    !!! tip
+         Index Pattern List:
+         `eos-abi-*` `eos-action-*` `eos-block-*` `eos-logs-*` `eos-delta-*`     
+         Where `eos` is the name of the chain.
 
+5. Select a time filter, if there are any, and click on `Create index pattern`
+ 
+    [![kibana](img/kibana5.png)](img/kibana5.png)
+    
+    [![kibana](img/kibana6.png)](img/kibana6.png)
+ 
 ## Index Management
 
 ## Discover
