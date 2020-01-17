@@ -308,8 +308,8 @@
 
 
   <li class="md-nav__item">
-    <a href="queries/" title="Queries" class="md-nav__link">
-      Queries
+    <a href="api/" title="API" class="md-nav__link">
+      API
     </a>
   </li>
 
@@ -409,7 +409,9 @@
                 
                 
                 <h1 id="hyperion-history-api">Hyperion History API</h1>
-<p>Scalable Full History API Solution for EOSIO based blockchains</p>
+<p><img height="64" src="https://eosrio.io/hyperion.png">
+<br/><br/>
+Scalable Full History API Solution for EOSIO based blockchains</p>
 <p>Made with ♥ by <a href="https://eosrio.io/">EOS Rio</a></p>
 <h2 id="introducing-an-storage-optimized-action-format-for-eosio">Introducing an storage-optimized action format for EOSIO</h2>
 <p>The original <em>history_plugin</em> bundled with eosio, that provided the v1 api, stored inline action traces nested inside their root actions. This led to an excessive amount of data being stored and also transferred whenever a user requested the action history for a given account. Also inline actions are used as a "event" mechanism to notify parties on a transaction. Based on those Hyperion implements some changes</p>

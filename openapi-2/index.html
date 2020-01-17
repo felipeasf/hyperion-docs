@@ -1,0 +1,2590 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
+    
+    
+      
+        <title>Hyperion History API for EOS Mainnet - Hyperion</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue-grey">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#hyperion-history-api-for-eos-mainnet" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Hyperion" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">history</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Hyperion
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Hyperion History API for EOS Mainnet
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/felipeasf/hyperion-docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    felipeasf/hyperion-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Hyperion" class="md-nav__button md-logo">
+      
+        <i class="md-icon">history</i>
+      
+    </a>
+    Hyperion
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/felipeasf/hyperion-docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    felipeasf/hyperion-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../system_req/" title="System Requirements" class="md-nav__link">
+      System Requirements
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../install/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../data/" title="Data Structure" class="md-nav__link">
+      Data Structure
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../kibana/" title="Kibana" class="md-nav__link">
+      Kibana
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../stream_client/" title="Stream Client" class="md-nav__link">
+      Stream Client
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../roadmap/" title="Roadmap" class="md-nav__link">
+      Roadmap
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scalable-full-history-api-solution-for-eosio-based-blockchains" class="md-nav__link">
+    Scalable Full History API Solution for EOSIO based blockchains
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-chain-eos-mainnet" class="md-nav__link">
+    Current Chain: EOS Mainnet 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provided-by-eos-rio" class="md-nav__link">
+    Provided by EOS Rio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-api-httpseoshyperioneosrioiov2health" class="md-nav__link">
+    Health API: https://eos.hyperion.eosrio.io/v2/health
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrated-explorer-httpseoshyperioneosrioiov2explore" class="md-nav__link">
+    Integrated Explorer: https://eos.hyperion.eosrio.io/v2/explore
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-250" class="md-nav__link">
+    Version: 2.5.0
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v1historyget_actions" class="md-nav__link">
+    /v1/history/get_actions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post" class="md-nav__link">
+    POST
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v1historyget_controlled_accounts" class="md-nav__link">
+    /v1/history/get_controlled_accounts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post_1" class="md-nav__link">
+    POST
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_1" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v1historyget_key_accounts" class="md-nav__link">
+    /v1/history/get_key_accounts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post_2" class="md-nav__link">
+    POST
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_2" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_2" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_2" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v1historyget_transaction" class="md-nav__link">
+    /v1/history/get_transaction
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post_3" class="md-nav__link">
+    POST
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_3" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_3" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_3" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v1chainget_block" class="md-nav__link">
+    /v1/chain/get_block
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post_4" class="md-nav__link">
+    POST
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_4" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_4" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_4" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2historyget_abi_snapshot" class="md-nav__link">
+    /v2/history/get_abi_snapshot
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_5" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_5" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_5" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2historyget_actions" class="md-nav__link">
+    /v2/history/get_actions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_1" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_6" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_6" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_6" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2historyget_blocks" class="md-nav__link">
+    /v2/history/get_blocks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_2" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_7" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_7" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_7" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2historyget_created_accounts" class="md-nav__link">
+    /v2/history/get_created_accounts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_3" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_8" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_8" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_8" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2historyget_creator" class="md-nav__link">
+    /v2/history/get_creator
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_4" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_9" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_9" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_9" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2historyget_deltas" class="md-nav__link">
+    /v2/history/get_deltas
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_5" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_10" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_10" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_10" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2historyget_transacted_accounts" class="md-nav__link">
+    /v2/history/get_transacted_accounts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_6" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_11" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_11" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_11" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2historyget_transaction" class="md-nav__link">
+    /v2/history/get_transaction
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_7" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_12" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_12" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_12" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2historyget_transfers" class="md-nav__link">
+    /v2/history/get_transfers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_8" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_13" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_13" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_13" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2stateget_account" class="md-nav__link">
+    /v2/state/get_account
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_9" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_14" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_14" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_14" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2stateget_key_accounts" class="md-nav__link">
+    /v2/state/get_key_accounts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_10" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_15" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_15" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_15" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post_5" class="md-nav__link">
+    POST
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_16" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_16" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_16" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2stateget_proposals" class="md-nav__link">
+    /v2/state/get_proposals
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_11" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_17" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_17" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_11" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_17" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2stateget_tokens" class="md-nav__link">
+    /v2/state/get_tokens
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_12" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_18" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_18" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_12" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_18" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2stateget_voters" class="md-nav__link">
+    /v2/state/get_voters
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_13" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_19" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_19" class="md-nav__link">
+    Description:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_13" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_19" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2health" class="md-nav__link">
+    /v2/health
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_14" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_20" class="md-nav__link">
+    Summary:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_20" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stream-clientjs" class="md-nav__link">
+    /stream-client.js
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_15" class="md-nav__link">
+    GET
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#responses_21" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/felipeasf/hyperion-docs/edit/master/docs/openapi-2.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="hyperion-history-api-for-eos-mainnet">Hyperion History API for EOS Mainnet</h1>
+<p><img height="64" src="https://eosrio.io/hyperion.png"></p>
+<h3 id="scalable-full-history-api-solution-for-eosio-based-blockchains">Scalable Full History API Solution for EOSIO based blockchains</h3>
+<p><em>Made with ♥️ by <a href="https://eosrio.io/">EOS Rio</a></em></p>
+<hr />
+<h4 id="current-chain-eos-mainnet">Current Chain: EOS Mainnet <img style="transform: translateY(8px)" height="32" src="https://bloks.io/img/chains/eos.png"></h4>
+<h4 id="provided-by-eos-rio">Provided by <a href="https://eosrio.io">EOS Rio</a></h4>
+<h4 id="health-api-httpseoshyperioneosrioiov2health">Health API: <a target="_blank" href="https://eos.hyperion.eosrio.io/v2/health">https://eos.hyperion.eosrio.io/v2/health</a></h4>
+<h4 id="integrated-explorer-httpseoshyperioneosrioiov2explore">Integrated Explorer: <a target="_blank" href="https://eos.hyperion.eosrio.io/v2/explore">https://eos.hyperion.eosrio.io/v2/explore</a></h4>
+<h2 id="version-250">Version: 2.5.0</h2>
+<h3 id="v1historyget_actions">/v1/history/get_actions</h3>
+<h4 id="post">POST</h4>
+<h5 id="summary">Summary:</h5>
+<p>get actions</p>
+<h5 id="description">Description:</h5>
+<p>legacy get actions query</p>
+<h5 id="responses">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>legacy get actions query</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v1historyget_controlled_accounts">/v1/history/get_controlled_accounts</h3>
+<h4 id="post_1">POST</h4>
+<h5 id="summary_1">Summary:</h5>
+<p>get controlled accounts by controlling accounts</p>
+<h5 id="description_1">Description:</h5>
+<p>get controlled accounts by controlling accounts</p>
+<h5 id="responses_1">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>get controlled accounts by controlling accounts</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v1historyget_key_accounts">/v1/history/get_key_accounts</h3>
+<h4 id="post_2">POST</h4>
+<h5 id="summary_2">Summary:</h5>
+<p>get accounts by public key</p>
+<h5 id="description_2">Description:</h5>
+<p>get accounts by public key</p>
+<h5 id="responses_2">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>get accounts by public key</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v1historyget_transaction">/v1/history/get_transaction</h3>
+<h4 id="post_3">POST</h4>
+<h5 id="summary_3">Summary:</h5>
+<p>get transaction by id</p>
+<h5 id="description_3">Description:</h5>
+<p>get all actions belonging to the same transaction</p>
+<h5 id="responses_3">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Default Response</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v1chainget_block">/v1/chain/get_block</h3>
+<h4 id="post_4">POST</h4>
+<h5 id="summary_4">Summary:</h5>
+<p>Returns an object containing various details about a specific block on the blockchain.</p>
+<h5 id="description_4">Description:</h5>
+<p>Returns an object containing various details about a specific block on the blockchain.</p>
+<h5 id="responses_4">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Default Response</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2historyget_abi_snapshot">/v2/history/get_abi_snapshot</h3>
+<h4 id="get">GET</h4>
+<h5 id="summary_5">Summary:</h5>
+<p>fetch abi at specific block</p>
+<h5 id="description_5">Description:</h5>
+<p>fetch contract abi at specific block</p>
+<h5 id="parameters">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contract</td>
+<td>query</td>
+<td>contract account</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>block</td>
+<td>query</td>
+<td>target block</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>fetch</td>
+<td>query</td>
+<td>should fetch the ABI</td>
+<td>No</td>
+<td>boolean</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses_5">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Default Response</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2historyget_actions">/v2/history/get_actions</h3>
+<h4 id="get_1">GET</h4>
+<h5 id="summary_6">Summary:</h5>
+<p>get root actions</p>
+<h5 id="description_6">Description:</h5>
+<p>get actions based on notified account. this endpoint also accepts generic filters based on indexed fields (e.g. act.authorization.actor=eosio or act.name=delegatebw), if included they will be combined with a AND operator</p>
+<h5 id="parameters_1">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>account</td>
+<td>query</td>
+<td>notified account</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>track</td>
+<td>query</td>
+<td>total results to track (count) [number or true]</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>filter</td>
+<td>query</td>
+<td>code:name filter</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>skip</td>
+<td>query</td>
+<td>skip [n] actions (pagination)</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>limit of [n] actions per page</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>query</td>
+<td>sort direction</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>after</td>
+<td>query</td>
+<td>filter after specified date (ISO8601)</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>before</td>
+<td>query</td>
+<td>filter before specified date (ISO8601)</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>simple</td>
+<td>query</td>
+<td>simplified output mode</td>
+<td>No</td>
+<td>boolean</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses_6">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>get actions based on notified account. this endpoint also accepts generic filters based on indexed fields (e.g. act.authorization.actor=eosio or act.name=delegatebw), if included they will be combined with a AND operator</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2historyget_blocks">/v2/history/get_blocks</h3>
+<h4 id="get_2">GET</h4>
+<h5 id="summary_7">Summary:</h5>
+<p>get block range</p>
+<h5 id="description_7">Description:</h5>
+<p>get block range</p>
+<h5 id="parameters_2">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>query</td>
+<td>starting block</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>to</td>
+<td>query</td>
+<td>last block</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses_7">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Default Response</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2historyget_created_accounts">/v2/history/get_created_accounts</h3>
+<h4 id="get_3">GET</h4>
+<h5 id="summary_8">Summary:</h5>
+<p>get created accounts</p>
+<h5 id="description_8">Description:</h5>
+<p>get all accounts created by one creator</p>
+<h5 id="parameters_3">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>account</td>
+<td>query</td>
+<td>creator account</td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses_8">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>get all accounts created by one creator</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2historyget_creator">/v2/history/get_creator</h3>
+<h4 id="get_4">GET</h4>
+<h5 id="summary_9">Summary:</h5>
+<p>get account creator</p>
+<h5 id="description_9">Description:</h5>
+<p>get account creator</p>
+<h5 id="parameters_4">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>account</td>
+<td>query</td>
+<td>created account</td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses_9">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>get account creator</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2historyget_deltas">/v2/history/get_deltas</h3>
+<h4 id="get_5">GET</h4>
+<h5 id="summary_10">Summary:</h5>
+<p>get state deltas</p>
+<h5 id="description_10">Description:</h5>
+<p>get state deltas</p>
+<h5 id="parameters_5">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>query</td>
+<td>contract account</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>query</td>
+<td>table scope</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>table</td>
+<td>query</td>
+<td>table name</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>payer</td>
+<td>query</td>
+<td>payer account</td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses_10">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Default Response</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2historyget_transacted_accounts">/v2/history/get_transacted_accounts</h3>
+<h4 id="get_6">GET</h4>
+<h5 id="summary_11">Summary:</h5>
+<p>get interactions based on transfers</p>
+<h5 id="description_11">Description:</h5>
+<p>get all account that interacted with the source account provided</p>
+<h5 id="parameters_6">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>account</td>
+<td>query</td>
+<td>source account</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>query</td>
+<td>token symbol</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>contract</td>
+<td>query</td>
+<td>token contract</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>query</td>
+<td>search direction</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>min</td>
+<td>query</td>
+<td>minimum value</td>
+<td>No</td>
+<td>number</td>
+</tr>
+<tr>
+<td>max</td>
+<td>query</td>
+<td>maximum value</td>
+<td>No</td>
+<td>number</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>query limit</td>
+<td>No</td>
+<td>number</td>
+</tr>
+<tr>
+<td>after</td>
+<td>query</td>
+<td>filter after specified date (ISO8601) or block number</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>before</td>
+<td>query</td>
+<td>filter before specified date (ISO8601) or block number</td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses_11">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Default Response</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2historyget_transaction">/v2/history/get_transaction</h3>
+<h4 id="get_7">GET</h4>
+<h5 id="summary_12">Summary:</h5>
+<p>get transaction by id</p>
+<h5 id="description_12">Description:</h5>
+<p>get all actions belonging to the same transaction</p>
+<h5 id="parameters_7">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>query</td>
+<td>transaction id</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses_12">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Default Response</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2historyget_transfers">/v2/history/get_transfers</h3>
+<h4 id="get_8">GET</h4>
+<h5 id="summary_13">Summary:</h5>
+<p>get token transfers</p>
+<h5 id="description_13">Description:</h5>
+<p>get token transfers utilizing the eosio.token standard</p>
+<h5 id="parameters_8">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>query</td>
+<td>source account</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>to</td>
+<td>query</td>
+<td>destination account</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>query</td>
+<td>token symbol</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>contract</td>
+<td>query</td>
+<td>token contract</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>skip</td>
+<td>query</td>
+<td>skip [n] actions (pagination)</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>limit of [n] actions per page</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>after</td>
+<td>query</td>
+<td>filter after specified date (ISO8601)</td>
+<td>No</td>
+<td>dateTime</td>
+</tr>
+<tr>
+<td>before</td>
+<td>query</td>
+<td>filter before specified date (ISO8601)</td>
+<td>No</td>
+<td>dateTime</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses_13">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>get token transfers utilizing the eosio.token standard</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2stateget_account">/v2/state/get_account</h3>
+<h4 id="get_9">GET</h4>
+<h5 id="summary_14">Summary:</h5>
+<p>get account summary</p>
+<h5 id="description_14">Description:</h5>
+<p>get account data</p>
+<h5 id="parameters_9">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>account</td>
+<td>query</td>
+<td>account name</td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses_14">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Default Response</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2stateget_key_accounts">/v2/state/get_key_accounts</h3>
+<h4 id="get_10">GET</h4>
+<h5 id="summary_15">Summary:</h5>
+<p>get accounts by public key</p>
+<h5 id="description_15">Description:</h5>
+<p>get accounts by public key</p>
+<h5 id="parameters_10">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public_key</td>
+<td>query</td>
+<td>public key</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses_15">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>get accounts by public key</td>
+</tr>
+</tbody>
+</table>
+<h4 id="post_5">POST</h4>
+<h5 id="summary_16">Summary:</h5>
+<p>get accounts by public key</p>
+<h5 id="description_16">Description:</h5>
+<p>get accounts by public key</p>
+<h5 id="responses_16">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>get accounts by public key</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2stateget_proposals">/v2/state/get_proposals</h3>
+<h4 id="get_11">GET</h4>
+<h5 id="summary_17">Summary:</h5>
+<p>get proposals</p>
+<h5 id="description_17">Description:</h5>
+<p>get proposals</p>
+<h5 id="parameters_11">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>proposer</td>
+<td>query</td>
+<td>filter by proposer</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>proposal</td>
+<td>query</td>
+<td>filter by proposal name</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>account</td>
+<td>query</td>
+<td>filter by either requested or provided account</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>requested</td>
+<td>query</td>
+<td>filter by requested account</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>provided</td>
+<td>query</td>
+<td>filter by provided account</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>executed</td>
+<td>query</td>
+<td>filter by execution status</td>
+<td>No</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>track</td>
+<td>query</td>
+<td>total results to track (count) [number or true]</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>skip</td>
+<td>query</td>
+<td>skip [n] actions (pagination)</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>limit of [n] actions per page</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses_17">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Default Response</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2stateget_tokens">/v2/state/get_tokens</h3>
+<h4 id="get_12">GET</h4>
+<h5 id="summary_18">Summary:</h5>
+<p>get tokens from account</p>
+<h5 id="description_18">Description:</h5>
+<p>get tokens from account</p>
+<h5 id="parameters_12">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>account</td>
+<td>query</td>
+<td>account</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses_18">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>get tokens from account</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2stateget_voters">/v2/state/get_voters</h3>
+<h4 id="get_13">GET</h4>
+<h5 id="summary_19">Summary:</h5>
+<p>get voters</p>
+<h5 id="description_19">Description:</h5>
+<p>get voters</p>
+<h5 id="parameters_13">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>producer</td>
+<td>query</td>
+<td>filter by voted producer (comma separated)</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>skip</td>
+<td>query</td>
+<td>skip [n] actions (pagination)</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>limit of [n] actions per page</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+</tbody>
+</table>
+<h5 id="responses_19">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Default Response</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v2health">/v2/health</h3>
+<h4 id="get_14">GET</h4>
+<h5 id="summary_20">Summary:</h5>
+<p>API Service Health Report</p>
+<h5 id="responses_20">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Default Response</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stream-clientjs">/stream-client.js</h3>
+<h4 id="get_15">GET</h4>
+<h5 id="responses_21">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>default response</td>
+</tr>
+</tbody>
+</table>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.a8b5e56f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
