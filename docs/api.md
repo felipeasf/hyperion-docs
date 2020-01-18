@@ -5,13 +5,40 @@
 ### /v1/history/get_actions
 
 #### POST
-##### Summary:
+##### Summary
 
 get actions
 
-##### Description:
+##### Description
 
 legacy get actions query
+
+##### Request Body
+```
+{
+  "account_name": "string",
+  "pos": 0,
+  "offset": 0,
+  "filter": "string",
+  "sort": "desc",
+  "after": "2020-01-17T19:51:03.618Z",
+  "before": "2020-01-17T19:51:03.618Z",
+  "parent": 0
+}
+```
+
+##### Schema
+
+|   variable	|  type 	|   description 	|
+|:-:	|---	|---	|
+| account_name  	|  string  <br>minLength: 1 maxLength: 12</br>	|   notified account	|
+| pos	|  integer	|  action position (pagination) 	|
+| offset  	|  integer 	|  limit of [n] actions per page 	|
+| filter  | string <br>minLength: 3</br>     | code:name filter 
+| sort    | string  | sort direction <br>Enum: [ desc, asc, 1, -1 ] | 
+| after   | string($date-time)   |  filter after specified date (ISO8601)
+| before  | string($date-time)   |  filter before specified date (ISO8601)
+| parent  | integer <br>minimum: 0</br>  |  filter by parent global sequence
 
 ##### Responses
 
@@ -27,13 +54,25 @@ curl -X POST "https://eos.hyperion.eosrio.io/v1/history/get_actions"
 ### /v1/history/get_controlled_accounts
 
 #### POST
-##### Summary:
+##### Summary
 
 get controlled accounts by controlling accounts
 
-##### Description:
+##### Description
 
 get controlled accounts by controlling accounts
+
+##### Request Body <font size="0" color="red">Required</font>
+```
+{
+  "controlling_account": "string"
+}
+```
+
+##### Schema
+|   variable	|  type 	|   description 	|
+|:-:	|---	|---	|
+| controlling_account  	|  string  |   controlling account	|
 
 ##### Responses
 
@@ -41,22 +80,42 @@ get controlled accounts by controlling accounts
 | ---- | ----------- |
 | 200 |  |
 
+##### Example
+```
+curl -X POST "https://eos.hyperion.eosrio.io/v1/history/get_controlled_accounts" -d '{"controlling_account":"eosio"}'
+```
+
 ### /v1/history/get_key_accounts
 
 #### POST
-##### Summary:
+##### Summary
 
 get accounts by public key
 
-##### Description:
+##### Description
 
 get accounts by public key
+
+##### Request Body <font size="0" color="red">Required</font>
+```
+{
+  "public_key": "string"
+}
+```
+
+##### Schema
+|   variable	|  type 	|   description 	|
+|:-:	|---	|---	|
+| public_key  	|  public key  |   public key	|
 
 ##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | Default Response |
 
 ##### Example
 ```
-curl -X POST "https://eos.hyperion.eosrio.io/v1/history/get_actions"
+curl -X POST "https://eos.hyperion.eosrio.io/v1/history/get_key_accounts" -d '{"public_key":"EOS8fDDZm7ommT5XBf9MPYkRioXX6GeCUeSNkTpimdwKon5bNAVm7"}'
 ```
 
 | Code | Description |
@@ -66,13 +125,25 @@ curl -X POST "https://eos.hyperion.eosrio.io/v1/history/get_actions"
 ### /v1/history/get_transaction
 
 #### POST
-##### Summary:
+##### Summary
 
 get transaction by id
 
-##### Description:
+##### Description
 
 get all actions belonging to the same transaction
+
+##### Request Body <font size="0" color="red">Required</font>
+```
+{
+  "id": "string"
+}
+```
+
+##### Schema
+|   variable	|  type 	|   description 	|
+|:-:	|---	|---	|
+| id  	|  string  |   transaction id	|
 
 ##### Responses
 
@@ -88,13 +159,24 @@ curl -X POST "https://eos.hyperion.eosrio.io/v1/history/get_transaction"
 ### /v1/chain/get_block
 
 #### POST
-##### Summary:
+##### Summary
 
 Returns an object containing various details about a specific block on the blockchain.
 
-##### Description:
+##### Description
 
 Returns an object containing various details about a specific block on the blockchain.
+
+##### Request Body
+```
+{
+  "block_num_or_id": "string"
+}
+```
+
+##### Schema
+
+block_num_or_id* -> string -> Provide a block number or a block id
 
 ##### Responses
 
@@ -104,17 +186,17 @@ Returns an object containing various details about a specific block on the block
 
 ##### Example
 ```
-curl -X POST "https://api.eossweden.org/v1/chain/get_block" -d '{"block_num_or_id": "1000"}'
+curl -X POST "https://eos.hyperion.eosrio.io/v1/chain/get_block" -d '{"block_num_or_id": "1000"}'
 ```
 
 ### /v2/history/get_abi_snapshot
 
 #### GET
-##### Summary:
+##### Summary
 
 fetch abi at specific block
 
-##### Description:
+##### Description
 
 fetch contract abi at specific block
 
@@ -135,13 +217,19 @@ fetch contract abi at specific block
 ### /v2/history/get_actions
 
 #### GET
-##### Summary:
+##### Summary
 
 get root actions
 
-##### Description:
+##### Description
 
 get actions based on notified account. this endpoint also accepts generic filters based on indexed fields (e.g. act.authorization.actor=eosio or act.name=delegatebw), if included they will be combined with a AND operator
+
+##### Request Body
+N/A
+
+##### Schema
+N/A 
 
 ##### Parameters
 
@@ -166,13 +254,19 @@ get actions based on notified account. this endpoint also accepts generic filter
 ### /v2/history/get_blocks
 
 #### GET
-##### Summary:
+##### Summary
 
 get block range
 
-##### Description:
+##### Description
 
 get block range
+
+##### Request Body
+N/A
+
+##### Schema
+N/A 
 
 ##### Parameters
 
@@ -187,14 +281,28 @@ get block range
 | ---- | ----------- |
 | 200 | Default Response |
 
+##### Examples
+Get all blocks
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/history/get_blocks"
+```
+Get all blocks starting from block 1000
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/history/get_blocks?from=1000"
+```
+Get blocks from 10 to 15
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/history/get_blocks?from=10&to=15"
+```
+
 ### /v2/history/get_created_accounts
 
 #### GET
-##### Summary:
+##### Summary
 
 get created accounts
 
-##### Description:
+##### Description
 
 get all accounts created by one creator
 
@@ -213,13 +321,19 @@ get all accounts created by one creator
 ### /v2/history/get_creator
 
 #### GET
-##### Summary:
+##### Summary
 
 get account creator
 
-##### Description:
+##### Description
 
 get account creator
+
+##### Request Body
+N/A
+
+##### Schema
+N/A 
 
 ##### Parameters
 
@@ -233,16 +347,27 @@ get account creator
 | ---- | ----------- |
 | 200 |  |
 
+##### Example
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/history/get_creator?account=eosriobrazil"
+```
+
 ### /v2/history/get_deltas
 
 #### GET
-##### Summary:
+##### Summary
 
 get state deltas
 
-##### Description:
+##### Description
 
 get state deltas
+
+##### Request Body
+N/A
+
+##### Schema
+N/A 
 
 ##### Parameters
 
@@ -259,16 +384,24 @@ get state deltas
 | ---- | ----------- |
 | 200 | Default Response |
 
+##### Example
+
 ### /v2/history/get_transacted_accounts
 
 #### GET
-##### Summary:
+##### Summary
 
 get interactions based on transfers
 
-##### Description:
+##### Description
 
 get all account that interacted with the source account provided
+
+##### Request Body
+N/A
+
+##### Schema
+N/A 
 
 ##### Parameters
 
@@ -290,22 +423,35 @@ get all account that interacted with the source account provided
 | ---- | ----------- |
 | 200 | Default Response |
 
+##### Example
+
 ### /v2/history/get_transaction
 
 #### GET
-##### Summary:
+##### Summary
 
 get transaction by id
 
-##### Description:
+##### Description
 
 get all actions belonging to the same transaction
+
+##### Request Body
+N/A
+
+##### Schema
+N/A
 
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | id | query | transaction id | Yes | string |
+
+##### Example
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/history/get_transaction?id=eec44c2ab2c2330e88fdacd3cd4c63838adb60da679ff12f299a4341fd036658"
+```
 
 ##### Responses
 
@@ -316,13 +462,19 @@ get all actions belonging to the same transaction
 ### /v2/history/get_transfers
 
 #### GET
-##### Summary:
+##### Summary
 
 get token transfers
 
-##### Description:
+##### Description
 
 get token transfers utilizing the eosio.token standard
+
+##### Request Body
+N/A
+
+##### Schema
+N/A
 
 ##### Parameters
 
@@ -343,16 +495,38 @@ get token transfers utilizing the eosio.token standard
 | ---- | ----------- |
 | 200 |  |
 
+##### Example
+Get all transfers from eosriobrazil account
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/history/get_transfers?from=eosriobrazil"
+```
+
+Get all transfer from `eosriobrazil` account to `eosio.ramfee` account
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/history/get_transfers?from=eosriobrazil&to=eosio.ramfee"
+```
+
+Get all transfer from `eosriobrazil` account to `eosio.ramfee` account after November 2019
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/history/get_transfers?from=eosriobrazil&to=eosio.ramfee&after=2019-11-01T00:00:00.000Z"
+```
+
 ### /v2/state/get_account
 
 #### GET
-##### Summary:
+##### Summary
 
 get account summary
 
-##### Description:
+##### Description
 
 get account data
+
+##### Request Body
+N/A
+
+##### Schema
+N/A
 
 ##### Parameters
 
@@ -366,16 +540,27 @@ get account data
 | ---- | ----------- |
 | 200 | Default Response |
 
+##### Example
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/state/get_account?account=eosio"
+```
+
 ### /v2/state/get_key_accounts
 
 #### GET
-##### Summary:
+##### Summary
 
 get accounts by public key
 
-##### Description:
+##### Description
 
 get accounts by public key
+
+##### Request Body
+N/A
+
+##### Schema
+N/A
 
 ##### Parameters
 
@@ -389,14 +574,32 @@ get accounts by public key
 | ---- | ----------- |
 | 200 |  |
 
+##### Example
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/state/get_key_accounts?public_key=EOS8fDDZm7ommT5XBf9MPYkRioXX6GeCUeSNkTpimdwKon5bNAVm7"
+```
+
+### /v2/state/get_key_accounts
 #### POST
-##### Summary:
+##### Summary
 
 get accounts by public key
 
-##### Description:
+##### Description
 
 get accounts by public key
+
+##### Request Body
+```
+{
+  "public_key": "string"
+}
+```
+
+##### Schema
+|   variable	|  type 	|   description 	|
+|:-:	|---	|---	|
+| public_key  	|  public key  |   public key	|
 
 ##### Responses
 
@@ -404,14 +607,19 @@ get accounts by public key
 | ---- | ----------- |
 | 200 |  |
 
+##### Example
+```
+curl -X POST "https://eos.hyperion.eosrio.io/v2/state/get_key_accounts" -d '{"public_key":"EOS8fDDZm7ommT5XBf9MPYkRioXX6GeCUeSNkTpimdwKon5bNAVm7"}'
+```
+
 ### /v2/state/get_proposals
 
 #### GET
-##### Summary:
+##### Summary
 
 get proposals
 
-##### Description:
+##### Description
 
 get proposals
 
@@ -438,13 +646,19 @@ get proposals
 ### /v2/state/get_tokens
 
 #### GET
-##### Summary:
+##### Summary
 
 get tokens from account
 
-##### Description:
+##### Description
 
 get tokens from account
+
+##### Request Body
+N/A
+
+##### Schema
+N/A
 
 ##### Parameters
 
@@ -458,16 +672,27 @@ get tokens from account
 | ---- | ----------- |
 | 200 |  |
 
+##### Example
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/state/get_tokens?account=eosriobrazil"
+```
+
 ### /v2/state/get_voters
 
 #### GET
-##### Summary:
+##### Summary
 
 get voters
 
-##### Description:
+##### Description
 
 get voters
+
+##### Request Body
+N/A
+
+##### Schema
+N/A
 
 ##### Parameters
 
@@ -482,6 +707,16 @@ get voters
 | Code | Description |
 | ---- | ----------- |
 | 200 | Default Response |
+
+##### Example
+Get all `eosriobrazil` voters
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/state/get_voters?producer=eosriobrazil"
+```
+Get only the first 3 responses
+```
+curl -X GET https://eos.hyperion.eosrio.io/v2/state/get_voters?producer=eosriobrazil&limit=3
+```
 
 ### /v2/health
 
