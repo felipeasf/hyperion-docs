@@ -17,6 +17,7 @@ nav:
     - Stream Client: stream_client.md
     - Docker: docker.md
     - Roadmap: roadmap.md
+    - Troubleshooting: trouble.md
 
 #theme: readthedocs
 theme:
