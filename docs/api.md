@@ -306,6 +306,12 @@ get created accounts
 
 get all accounts created by one creator
 
+##### Request Body
+N/A
+
+##### Schema
+N/A 
+
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
@@ -317,6 +323,11 @@ get all accounts created by one creator
 | Code | Description |
 | ---- | ----------- |
 | 200 |  |
+
+##### Examples
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/history/get_created_accounts?account=eosio"
+```
 
 ### /v2/history/get_creator
 
@@ -384,7 +395,16 @@ N/A
 | ---- | ----------- |
 | 200 | Default Response |
 
-##### Example
+##### Examples
+Get all deltas from `eosio.token` contract 
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/history/get_deltas?code=eosio.token"
+```
+
+Get all deltas from the table `accounts` of the `eosio.token` contract 
+```
+curl -X GET "https://eos.hyperion.eosrio.io/v2/history/get_deltas?code=eosio.token&&table=accounts"
+```
 
 ### /v2/history/get_transacted_accounts
 
