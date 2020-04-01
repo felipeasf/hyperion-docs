@@ -22,11 +22,11 @@
       "enable_explorer":false
    },
    "settings":{
-      "preview":false,
+      "preview":false, -> Preview mode - prints worker map and exit
       "chain":"eos", --> Chain named (The same used on ecosystem.config.js)
       "eosio_alias":"eosio",
       "parser":"1.8", --> Version of the parser to be used
-      "auto_stop":300,
+      "auto_stop":300, --> Automatically stop Indexer after X seconds if no more blocks are being processed (0=disable)
       "index_version":"v1", --> Set the index version
       "debug":false, --> Set the debug mode
       "rate_monitoring":true,
@@ -51,30 +51,30 @@
       ]
    },
    "scaling":{ --> Scalling options:
-      "batch_size":10000,
-      "queue_limit":50000,
+      "batch_size":10000, --> Parallel reader batch size in blocks
+      "queue_limit":50000, --> Queue size limit on rabbitmq
       "readers":1, --> Number of readers
       "ds_queues":1, --> Number of deserializer queues
       "ds_threads":1, --> Number of deserializer threads
       "ds_pool_size":1, --> Deserializer pool size
       "indexing_queues":1, --> Number of indexing queues
-      "ad_idx_queues":1, 
+      "ad_idx_queues":1, --> Multiplier for action indexing queues
       "max_autoscale":4, --> Max number of readers to autoscale
       "auto_scale_trigger":20000 --> Number of itens on queue to trigger autoscale
    },
    "indexer":{ --> Indexer configuration
-      "start_on":0, --> Block number to start indexing on. O start from begining
-      "stop_on":0,  --> Stop indexing on block number. 0 Keep indexing
-      "rewrite":false, --> Overwrite indexed blocks when start indexing again.
-      "purge_queues":true,
+      "start_on":0, --> Start indexing on block (0=disable)
+      "stop_on":0,  --> Stop indexing on block  (0=disable)
+      "rewrite":false, -->Force rewrite the target replay range
+      "purge_queues":true, --> Clear rabbitmq queues before starting the indexer
       "live_reader":false, --> Enable live reader
-      "live_only_mode":false,
+      "live_only_mode":false, --> Only reads realtime data serially
       "abi_scan_mode":true,
-      "fetch_block":true,
-      "fetch_traces":true,
-      "disable_reading":false,
+      "fetch_block":true, --> Request full blocks from the state history plugin
+      "fetch_traces":true, --> Request traces from the state history plugin
+      "disable_reading":false, --> Completely disable block reading, for lagged queue processing
       "disable_indexing":false,
-      "process_deltas":true,
+      "process_deltas":true, --> Read table deltas
       "repair_mode":false
    },
    "features":{
@@ -90,14 +90,14 @@
          "userres":false,
          "delband":false
       },
-      "index_deltas":true,
-      "index_transfer_memo":true,
-      "index_all_deltas":true
+      "index_deltas":true, --> Index common table deltas (see delta on definitions/mappings)
+      "index_transfer_memo":true, --> Index transfers memo
+      "index_all_deltas":true --> Index all table deltas
    },
    "prefetch":{
-      "read":50,
-      "block":100,
-      "index":500
+      "read":50, --> Stage 1 prefecth size
+      "block":100, --> Stage 2 prefecth size
+      "index":500 --> Stage 3 prefecth size
    },
    "experimental":{
       "PATCHED_SHIP":false
@@ -208,3 +208,6 @@ The next step is to edit the file as the following:
   }
 }
 ```
+
+!!! tip
+    For multiple chains, you should have one config file for each chain.
