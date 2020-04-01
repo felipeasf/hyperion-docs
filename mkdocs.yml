@@ -16,7 +16,7 @@ nav:
       - Connections: connections.md
       - Chain Configuration: chain.md
       - Ecosystem: ecosystem.md
-    - Users / Dapps?:
+    - Users / Developers:
       - Getting Started: howtouse.md
       - Stream Client: stream_client.md
       - Endpoint List: endpoint.md
@@ -24,7 +24,7 @@ nav:
     - Troubleshooting:
       - Kibana: kibana.md
       - RabbitMQ: rabbit.md
-      - Known Issues: issues.md
+      - FAQ: faq.md
 
 #theme: readthedocs
 theme:
