@@ -17,11 +17,16 @@ Enter rabbitmq user [hyperion]:
 Enter the desired rabbitmq user and hit enter. If you leave it in blank, the default user
 `hyperion` will be set.
 
-Then, it will ask your for the rabbitmq password:
+Then, the same for rabbitmq password:
 ```
 Enter rabbitmq password [123456]:
 ```
-Again, input the password and hit enter.
+
+And finally, it will ask if you want to create npm global folder:
+````
+Do you want to create a directory for npm global installations [Y/n] :
+````
+This is recommended. If you choose `n`, npm packages will be installed as root.
 
 Now, the script will do the work, this can take a while. Get a cup of coffee and relax. =)
 
