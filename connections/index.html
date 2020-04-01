@@ -36,7 +36,7 @@
     
     
       
-        <title>Roadmap - Hyperion</title>
+        <title>Connections - Hyperion</title>
       
     
     
@@ -85,7 +85,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#roadmap" tabindex="1" class="md-skip">
+      <a href="#connectionsjson" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -111,7 +111,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Roadmap
+                Connections
               
             </span>
           
@@ -232,10 +232,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Providers
@@ -275,11 +277,45 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../connections/" title="Connections" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Connections
+      </label>
+    
+    <a href="./" title="Connections" class="md-nav__link md-nav__link--active">
       Connections
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connectionsjson" class="md-nav__link">
+    connections.json
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -446,8 +482,22 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connectionsjson" class="md-nav__link">
+    connections.json
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -459,16 +509,43 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/felipeasf/hyperion-docs/edit/master/docs/roadmap.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/felipeasf/hyperion-docs/edit/master/docs/connections.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="roadmap">Roadmap</h1>
-<ul>
-<li>Table deltas storage &amp; queries (in progress)</li>
-<li>Real-time streaming support (in progress)</li>
-<li>Plugin system (in progress)</li>
-<li>Control GUI</li>
-</ul>
+                  <h1>Connections</h1>
+                
+                <h2 id="connectionsjson">connections.json</h2>
+<pre><code class="json">{
+   &quot;amqp&quot;:{
+      &quot;host&quot;:&quot;127.0.0.1:5672&quot;,
+      &quot;api&quot;:&quot;127.0.0.1:15672&quot;,
+      &quot;user&quot;:&quot;my_user&quot;,
+      &quot;pass&quot;:&quot;my_password&quot;,
+      &quot;vhost&quot;:&quot;hyperion&quot;
+   },
+   &quot;elasticsearch&quot;:{
+      &quot;host&quot;:&quot;127.0.0.1:9200&quot;,
+      &quot;ingest_nodes&quot;:[
+         &quot;127.0.0.1:9200&quot;
+      ],
+      &quot;user&quot;:&quot;&quot;,
+      &quot;pass&quot;:&quot;&quot;
+   },
+   &quot;redis&quot;:{
+      &quot;host&quot;:&quot;127.0.0.1&quot;,
+      &quot;port&quot;:&quot;6379&quot;
+   },
+   &quot;chains&quot;:{
+      &quot;eos&quot;:{
+         &quot;name&quot;:&quot;EOS Mainnet&quot;,
+         &quot;chain_id&quot;:&quot;aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906&quot;,
+         &quot;http&quot;:&quot;http://127.0.0.1:8888&quot;,
+         &quot;ship&quot;:&quot;ws://127.0.0.1:8080&quot;,
+         &quot;WS_ROUTER_PORT&quot;:7001
+      }
+   }
+}
+</code></pre>
                 
                   
                 
@@ -485,6 +562,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../docker/" title="Docker" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Docker
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../chain/" title="Chain Configuration" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Chain Configuration
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

@@ -36,7 +36,7 @@
     
     
       
-        <title>Roadmap - Hyperion</title>
+        <title>Chain Configuration - Hyperion</title>
       
     
     
@@ -85,7 +85,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#roadmap" tabindex="1" class="md-skip">
+      <a href="#detailed-description-of-the-chainsexampleconfigjson" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -111,7 +111,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Roadmap
+                Chain Configuration
               
             </span>
           
@@ -232,10 +232,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Providers
@@ -287,11 +289,52 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../chain/" title="Chain Configuration" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Chain Configuration
+      </label>
+    
+    <a href="./" title="Chain Configuration" class="md-nav__link md-nav__link--active">
       Chain Configuration
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description-of-the-chainsexampleconfigjson" class="md-nav__link">
+    Detailed description of the chains/example.config.json
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -446,8 +489,29 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description-of-the-chainsexampleconfigjson" class="md-nav__link">
+    Detailed description of the chains/example.config.json
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -459,16 +523,215 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/felipeasf/hyperion-docs/edit/master/docs/roadmap.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/felipeasf/hyperion-docs/edit/master/docs/chain.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="roadmap">Roadmap</h1>
-<ul>
-<li>Table deltas storage &amp; queries (in progress)</li>
-<li>Real-time streaming support (in progress)</li>
-<li>Plugin system (in progress)</li>
-<li>Control GUI</li>
-</ul>
+                  <h1>Chain Configuration</h1>
+                
+                <h2 id="detailed-description-of-the-chainsexampleconfigjson">Detailed description of the chains/example.config.json</h2>
+<pre><code class="json">{
+   &quot;api&quot;:{ --&gt; API configuration
+      &quot;chain_name&quot;:&quot;EXAMPLE Chain&quot;,
+      &quot;server_addr&quot;:&quot;127.0.0.1&quot;,
+      &quot;server_port&quot;:7000,
+      &quot;server_name&quot;:&quot;127.0.0.1:7000&quot;,
+      &quot;provider_name&quot;:&quot;Example Provider&quot;,
+      &quot;provider_url&quot;:&quot;https://example.com&quot;,
+      &quot;chain_logo_url&quot;:&quot;&quot;,
+      &quot;enable_caching&quot;:true, --&gt; Set API cache
+      &quot;cache_life&quot;:1, --&gt; Define the cache life
+      &quot;limits&quot;:{ --&gt; Setting API response limits
+         &quot;get_actions&quot;:1000,
+         &quot;get_voters&quot;:100,
+         &quot;get_links&quot;:1000,
+         &quot;get_deltas&quot;:1000
+      },
+      &quot;access_log&quot;:false,
+      &quot;enable_explorer&quot;:false
+   },
+   &quot;settings&quot;:{
+      &quot;preview&quot;:false,
+      &quot;chain&quot;:&quot;eos&quot;, --&gt; Chain named (The same used on ecosystem.config.js)
+      &quot;eosio_alias&quot;:&quot;eosio&quot;,
+      &quot;parser&quot;:&quot;1.8&quot;, --&gt; Version of the parser to be used
+      &quot;auto_stop&quot;:300,
+      &quot;index_version&quot;:&quot;v1&quot;, --&gt; Set the index version
+      &quot;debug&quot;:false, --&gt; Set the debug mode
+      &quot;rate_monitoring&quot;:true,
+      &quot;bp_logs&quot;:false, --&gt; Enable logs
+      &quot;bp_monitoring&quot;:false,
+      &quot;ipc_debug_rate&quot;:2000
+   },
+   &quot;blacklists&quot;:{ --&gt; blacklist for actions and deltas
+      &quot;actions&quot;:[
+
+      ],
+      &quot;deltas&quot;:[
+
+      ]
+   },
+   &quot;whitelists&quot;:{ --&gt; whitelist for actions and deltas
+      &quot;actions&quot;:[
+
+      ],
+      &quot;deltas&quot;:[
+
+      ]
+   },
+   &quot;scaling&quot;:{ --&gt; Scalling options:
+      &quot;batch_size&quot;:10000,
+      &quot;queue_limit&quot;:50000,
+      &quot;readers&quot;:1, --&gt; Number of readers
+      &quot;ds_queues&quot;:1, --&gt; Number of deserializer queues
+      &quot;ds_threads&quot;:1, --&gt; Number of deserializer threads
+      &quot;ds_pool_size&quot;:1, --&gt; Deserializer pool size
+      &quot;indexing_queues&quot;:1, --&gt; Number of indexing queues
+      &quot;ad_idx_queues&quot;:1, 
+      &quot;max_autoscale&quot;:4, --&gt; Max number of readers to autoscale
+      &quot;auto_scale_trigger&quot;:20000 --&gt; Number of itens on queue to trigger autoscale
+   },
+   &quot;indexer&quot;:{ --&gt; Indexer configuration
+      &quot;start_on&quot;:0, --&gt; Block number to start indexing on. O start from begining
+      &quot;stop_on&quot;:0,  --&gt; Stop indexing on block number. 0 Keep indexing
+      &quot;rewrite&quot;:false, --&gt; Overwrite indexed blocks when start indexing again.
+      &quot;purge_queues&quot;:true,
+      &quot;live_reader&quot;:false, --&gt; Enable live reader
+      &quot;live_only_mode&quot;:false,
+      &quot;abi_scan_mode&quot;:true,
+      &quot;fetch_block&quot;:true,
+      &quot;fetch_traces&quot;:true,
+      &quot;disable_reading&quot;:false,
+      &quot;disable_indexing&quot;:false,
+      &quot;process_deltas&quot;:true,
+      &quot;repair_mode&quot;:false
+   },
+   &quot;features&quot;:{
+      &quot;streaming&quot;:{ --&gt; Enable live streaming
+         &quot;enable&quot;:false,  
+         &quot;traces&quot;:false,
+         &quot;deltas&quot;:false
+      },
+      &quot;tables&quot;:{ --&gt; Tables to fetch
+         &quot;proposals&quot;:true,
+         &quot;accounts&quot;:true,
+         &quot;voters&quot;:true,
+         &quot;userres&quot;:false,
+         &quot;delband&quot;:false
+      },
+      &quot;index_deltas&quot;:true,
+      &quot;index_transfer_memo&quot;:true,
+      &quot;index_all_deltas&quot;:true
+   },
+   &quot;prefetch&quot;:{
+      &quot;read&quot;:50,
+      &quot;block&quot;:100,
+      &quot;index&quot;:500
+   },
+   &quot;experimental&quot;:{
+      &quot;PATCHED_SHIP&quot;:false
+   }
+}
+</code></pre>
+
+<h2 id="example">Example</h2>
+<p>Let's suppose that we gonna start Indexing the EOS Mainnet with:
+ - Locally exposed API
+ - 2 Readers
+ - 2 Deserializer Queues
+ - Live Streaming Enabled with Traces
+ - ABI scan already done</p>
+<p>The first step is to make a copy of the config file and rename it: <code>chains/example.config.json</code> to <code>chains/eos.config.json</code>.
+The next step is to edit the file as the following:</p>
+<pre><code class="json">{
+  &quot;api&quot;: {
+    &quot;chain_name&quot;: &quot;eos&quot;,
+    &quot;server_addr&quot;: &quot;127.0.0.1&quot;,
+    &quot;server_port&quot;: 7000,
+    &quot;server_name&quot;: &quot;EOS MainNet&quot;,
+    &quot;provider_name&quot;: &quot;Example Provider&quot;,
+    &quot;provider_url&quot;: &quot;https://example.com&quot;,
+    &quot;chain_logo_url&quot;: &quot;&quot;,
+    &quot;enable_caching&quot;: true,
+    &quot;cache_life&quot;: 1,
+    &quot;limits&quot;: {
+      &quot;get_actions&quot;: 1000,
+      &quot;get_voters&quot;: 100
+    }
+  },
+  &quot;settings&quot;: {
+    &quot;preview&quot;: false,
+    &quot;chain&quot;: &quot;eos&quot;,
+    &quot;eosio_alias&quot;: &quot;eosio&quot;,
+    &quot;parser&quot;: &quot;2.0&quot;,
+    &quot;auto_stop&quot;: 30,
+    &quot;index_version&quot;: &quot;v1&quot;,
+    &quot;debug&quot;: false,
+    &quot;rate_monitoring&quot;: true,
+    &quot;bp_logs&quot;: false,
+    &quot;bp_monitoring&quot;: false
+  },
+  &quot;blacklists&quot;: {
+    &quot;actions&quot;: [],
+    &quot;deltas&quot;: []
+  },
+  &quot;whitelists&quot;: {
+    &quot;actions&quot;: [],
+    &quot;deltas&quot;: []
+  },
+  &quot;scaling&quot;: {
+    &quot;batch_size&quot;: 5000,
+    &quot;queue_limit&quot;: 10000,
+    &quot;readers&quot;: 2,
+    &quot;ds_queues&quot;: 2,
+    &quot;ds_threads&quot;: 1,
+    &quot;ds_pool_size&quot;: 1,
+    &quot;indexing_queues&quot;: 1,
+    &quot;ad_idx_queues&quot;: 1,
+    &quot;max_autoscale&quot;:4,
+    &quot;auto_scale_trigger&quot;:20000
+  },
+  &quot;indexer&quot;: {
+    &quot;start_on&quot;: 1,
+    &quot;stop_on&quot;: 0,
+    &quot;rewrite&quot;: false,
+    &quot;purge_queues&quot;: true,
+    &quot;live_reader&quot;: true,
+    &quot;live_only_mode&quot;: false,
+    &quot;abi_scan_mode&quot;: false,
+    &quot;fetch_block&quot;: true,
+    &quot;fetch_traces&quot;: true,
+    &quot;disable_reading&quot;: false,
+    &quot;disable_indexing&quot;: false,
+    &quot;process_deltas&quot;: true,
+    &quot;repair_mode&quot;: false
+  },
+  &quot;features&quot;: {
+    &quot;streaming&quot;: {
+      &quot;enable&quot;: true,
+      &quot;traces&quot;: true,
+      &quot;deltas&quot;: false
+    },
+    &quot;tables&quot;: {
+      &quot;proposals&quot;: true,
+      &quot;accounts&quot;: true,
+      &quot;voters&quot;: true,
+      &quot;userres&quot;: false,
+      &quot;delband&quot;: false
+    },
+    &quot;index_deltas&quot;: true,
+    &quot;index_transfer_memo&quot;: true,
+    &quot;index_all_deltas&quot;: true
+  },
+  &quot;prefetch&quot;: {
+    &quot;read&quot;: 50,
+    &quot;block&quot;: 100,
+    &quot;index&quot;: 500
+  },
+  &quot;experimental&quot;: {
+    &quot;PATCHED_SHIP&quot;: false
+  }
+}
+</code></pre>
                 
                   
                 
@@ -485,6 +748,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../connections/" title="Connections" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Connections
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../ecosystem/" title="Ecosystem" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Ecosystem
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
