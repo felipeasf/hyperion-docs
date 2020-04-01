@@ -1,4 +1,4 @@
-## Detailed description of the chains/example.config.json
+#### Detailed description of the chains/example.config.json
 
 ````json
 {
@@ -105,7 +105,7 @@
 }
 ````
 
-## Example
+#### Example
 
 Let's suppose that we gonna start Indexing the EOS Mainnet with:
  - Locally exposed API

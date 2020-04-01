@@ -19,6 +19,7 @@ nav:
     - Users / Dapps?:
       - Getting Started: howtouse.md
       - Stream Client: stream_client.md
+      - Endpoint List: endpoint.md
     - API Reference: api.md
     - Troubleshooting:
       - Kibana: kibana.md

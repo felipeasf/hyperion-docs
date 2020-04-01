@@ -1,4 +1,7 @@
 ## Installation Script
+!!! tip
+    The usage of this installation script is highly recommended for fresh installs. If already have
+    dependencies installed, is indicated to update then manually before running the script.
 
 We provide an automated shell script that first install all dependencies and then configure Hyperion.
 All you need to do is to run it:
