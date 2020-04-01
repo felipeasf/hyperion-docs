@@ -9,15 +9,20 @@ repo_url: 'https://github.com/felipeasf/hyperion-docs'
 
 nav:
     - Home: index.md
-    - System Requirements: system_req.md
-    - Getting Started: install.md
-    - Data Structure: data.md
-    - API: api.md
-    - Kibana: kibana.md
-    - Stream Client: stream_client.md
-    - Docker: docker.md
-    - Roadmap: roadmap.md
-    - Troubleshooting: trouble.md
+    - Providers:
+      - Getting Started: install.md
+      - Docker: docker.md
+      - Connections: connections.md
+      - Chain Configuration: chain.md
+      - Ecosystem: ecosystem.md
+    - Users / Dapps?:
+      - Getting Started: howtouse.md
+      - Stream Client: stream_client.md
+    - API Reference: api.md
+    - Troubleshooting:
+      - Kibana: kibana.md
+      - RabbitMQ: rabbit.md
+      - Known Issues: issues.md
 
 #theme: readthedocs
 theme:

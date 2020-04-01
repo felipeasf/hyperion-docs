@@ -67,7 +67,7 @@ sudo systemctl enable elasticsearch
 
 `curl http://localhost:9200`
 
-```
+```json
 {
   "name" : "ip-172-31-5-121",
   "cluster_name" : "hyperion",
@@ -99,10 +99,7 @@ curl -X POST "localhost:9200/_security/user/elastic/_password?pretty" -H 'Conten
 {
   "password" : "new_password"
 }'
-
-
 ```
-
 
 #### RabbitMQ Installation
 
@@ -211,7 +208,7 @@ state-history-endpoint = 127.0.0.1:8080
 plugin = eosio::state_history_plugin
 ```
 
-#### Hyperion Indexer
+#### Hyperion
 
 ##### 1. Clone & Install packages
 ```bash
@@ -231,71 +228,50 @@ nano connections.json
 ```
 
 connections.json Reference
-```
+```json
 {
-  "amqp": {
-    "host": "127.0.0.1:5672", // RabbitMQ Server
-    "api": "127.0.0.1:15672", // RabbitMQ API Endpoint
-    "user": "username",
-    "pass": "password",
-    "vhost": "hyperion" // RabbitMQ vhost
-  },
-  "elasticsearch": {
-    "host": "127.0.0.1:9200", // Elasticsearch HTTP API Endpoint
-    "ingest_nodes": ["hyperion-elastic:9200"],
-    "user": "elastic",
-    "pass": "password"
-  },
-  "redis": {
-    "host": "127.0.0.1",
-    "port": "6379"
-  },
-  "chains": {
-    "eos": { // Chain name (must match on the ecosystem file)
-      "name": "EOS Mainnet",
-      "chain_id": "aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906",
-      "http": "http://127.0.0.1:8888", // Nodeos Chain API Endpoint
-      "ship": "ws://127.0.0.1:8080", // Nodeos State History Endpoint
-      "WS_ROUTER_PORT": 7001
-    },
-    "other_chain": {...}
-  }
+   "amqp":{
+      "host":"127.0.0.1:5672",
+      "api":"127.0.0.1:15672",
+      "user":"my_user",
+      "pass":"my_password",
+      "vhost":"hyperion"
+   },
+   "elasticsearch":{
+      "host":"127.0.0.1:9200",
+      "ingest_nodes":[
+         "127.0.0.1:9200"
+      ],
+      "user":"",
+      "pass":""
+   },
+   "redis":{
+      "host":"127.0.0.1",
+      "port":"6379"
+   },
+   "chains":{
+      "eos":{
+         "name":"EOS Mainnet",
+         "chain_id":"aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906",
+         "http":"http://127.0.0.1:8888",
+         "ship":"ws://127.0.0.1:8080",
+         "WS_ROUTER_PORT":7001
+      }
+   }
 }
-
 ```
+For more details, refer to the [connections section](connections.md)
 
 ecosystem.config.js Reference
+```javascript
+module.exports = {
+    apps: [
+        addIndexer('eos'),
+        addApiServer('eos', 1)
+    ]
+};
 ```
-CHAIN: 'eos',                          // chain prefix for indexing
-ABI_CACHE_MODE: 'false',               // only cache historical ABIs to redis
-DEBUG: 'false',                        // debug mode - display extra logs for debugging
-LIVE_READER: 'true',                   // enable continuous reading after reaching the head block
-FETCH_DELTAS: 'false',                 // read table deltas
-CREATE_INDICES: 'v1',                  // index suffix to be created, set to false to use existing aliases
-START_ON: 0,                           // start indexing on block (0=disable)
-STOP_ON: 0,                            // stop indexing on block  (0=disable)
-AUTO_STOP: 0,                          // automatically stop Indexer after X seconds if no more blocks are being processed (0=disable)
-REWRITE: 'false',                      // force rewrite the target replay range
-PURGE_QUEUES: 'false',                 // clear rabbitmq queues before starting the indexer
-BATCH_SIZE: 2000,                      // parallel reader batch size in blocks
-QUEUE_THRESH: 8000,                    // queue size limit on rabbitmq
-LIVE_ONLY: 'false',                    // only reads realtime data serially
-FETCH_BLOCK: 'true',                   // Request full blocks from the state history plugin
-FETCH_TRACES: 'true',                  // Request traces from the state history plugin
-PREVIEW: 'false',                      // preview mode - prints worker map and exit
-DISABLE_READING: 'false',              // completely disable block reading, for lagged queue processing
-READERS: 3,                            // parallel state history readers
-DESERIALIZERS: 4,                      // deserialization queues
-DS_MULT: 4,                            // deserialization threads per queue
-ES_IDX_QUEUES: 4,              // elastic indexers per queue
-ES_AD_IDX_QUEUES: 2,                      // multiplier for action indexing queues
-READ_PREFETCH: 50,                     // Stage 1 prefecth size
-BLOCK_PREFETCH: 5,                     // Stage 2 prefecth size
-INDEX_PREFETCH: 500,                   // Stage 3 prefetch size
-ENABLE_INDEXING: 'true',               // enable elasticsearch indexing
-INDEX_DELTAS: 'true',                  // index common table deltas (see delta on definitions/mappings)
-INDEX_ALL_DELTAS: 'false'              // index all table deltas (WARNING)
-```
+For more details, refer to the [ecosystem section](ecosystem.md)
 
 ### Setup Indices and Aliases
 
@@ -333,33 +309,82 @@ POST _aliases
 }
 ```
 
-Before indexing actions into elasticsearch its required to do a ABI scan pass
-
-Start with
+Before starting to index actions into elasticsearch its required to do a ABI scan.
+Set the indexer section of the chain/CHAINNAME.config.json as the following: 
+ 
+```json
+"indexer":{ 
+      "start_on":0,
+      "stop_on":0,
+      "rewrite":false,
+      "purge_queues":true,
+      "live_reader":false,
+      "live_only_mode":false,
+      "abi_scan_mode":true,
+      "fetch_block":true,
+      "fetch_traces":true,
+      "disable_reading":false,
+      "disable_indexing":false,
+      "process_deltas":true,
+      "repair_mode":false
+   },
 ```
-ABI_CACHE_MODE: 'true',
-FETCH_BLOCK: 'false',
-FETCH_TRACES: 'false',
-INDEX_DELTAS: 'false',
-INDEX_ALL_DELTAS: 'false',
-```
-
-When indexing is finished, change the settings back and restart the indexer. In case you do not have much contract updates, you do not need to run a full pass.
 
 Tune your configs to your specific hardware using the following settings:
+```json
+"scaling":{
+      "batch_size":10000,
+      "queue_limit":50000,
+      "readers":1,
+      "ds_queues":1,
+      "ds_threads":1,
+      "ds_pool_size":1,
+      "indexing_queues":1,
+      "ad_idx_queues":1,
+      "max_autoscale":4,
+      "auto_scale_trigger":20000
+   },
 ```
-BATCH_SIZE
-READERS
-DESERIALIZERS
-DS_MULT
-ES_IDX_QUEUES
-ES_AD_IDX_QUEUES
-READ_PREFETCH
-BLOCK_PREFETCH
-INDEX_PREFETCH
-```
+For more details related to the chain configuration please, refer to the [chain section](chain.md)
 
 ### Start and Stop
+
+We provide scripts to make simple the process of start and stop you Hyperion Indexer or API instance.
+But, you can also do it manually if you prefer. This section will cover both ways.
+
+#### Using run / stop script
+
+You can use `run` script to start the Indexer or the API.
+```
+./run.sh chain-indexer
+
+./run.sh chain-api
+```
+Examples:
+Start indexing EOS mainnet
+```
+./run.sh eos-indexer
+```
+Start EOS API
+```
+./run.sh eos-api
+```
+Remember that the chain name was previously defined on the Hyperion section.
+
+The `stop` script follows the same pattern of the `run` script:
+```
+./stop.sh chain-indexer
+
+./stop.sh chain-api
+```
+
+Example:
+Stop the EOS mainnet indexer
+```
+./stop.sh eos-indexer
+```
+
+#### Commands
 
 Start indexing
 ```
@@ -385,6 +410,6 @@ pm2 logs API
 
 ### API Reference
 
-Documentation is automatically generated by Swagger/OpenAPI.
+API Reference: [API section](api.md)
 
 Example: [OpenAPI Docs](https://eos.hyperion.eosrio.io/v2/docs)
