@@ -10,7 +10,8 @@ repo_url: 'https://github.com/felipeasf/hyperion-docs'
 nav:
     - Home: index.md
     - Providers:
-      - Getting Started: install.md
+      - Quick Start: quickstart.md
+      - Install: install.md
       - Docker: docker.md
       - Connections: connections.md
       - Chain Configuration: chain.md
