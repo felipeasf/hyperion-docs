@@ -574,11 +574,11 @@
       &quot;enable_explorer&quot;:false
    },
    &quot;settings&quot;:{
-      &quot;preview&quot;:false,
+      &quot;preview&quot;:false, -&gt; Preview mode - prints worker map and exit
       &quot;chain&quot;:&quot;eos&quot;, --&gt; Chain named (The same used on ecosystem.config.js)
       &quot;eosio_alias&quot;:&quot;eosio&quot;,
       &quot;parser&quot;:&quot;1.8&quot;, --&gt; Version of the parser to be used
-      &quot;auto_stop&quot;:300,
+      &quot;auto_stop&quot;:300, --&gt; Automatically stop Indexer after X seconds if no more blocks are being processed (0=disable)
       &quot;index_version&quot;:&quot;v1&quot;, --&gt; Set the index version
       &quot;debug&quot;:false, --&gt; Set the debug mode
       &quot;rate_monitoring&quot;:true,
@@ -603,30 +603,30 @@
       ]
    },
    &quot;scaling&quot;:{ --&gt; Scalling options:
-      &quot;batch_size&quot;:10000,
-      &quot;queue_limit&quot;:50000,
+      &quot;batch_size&quot;:10000, --&gt; Parallel reader batch size in blocks
+      &quot;queue_limit&quot;:50000, --&gt; Queue size limit on rabbitmq
       &quot;readers&quot;:1, --&gt; Number of readers
       &quot;ds_queues&quot;:1, --&gt; Number of deserializer queues
       &quot;ds_threads&quot;:1, --&gt; Number of deserializer threads
       &quot;ds_pool_size&quot;:1, --&gt; Deserializer pool size
       &quot;indexing_queues&quot;:1, --&gt; Number of indexing queues
-      &quot;ad_idx_queues&quot;:1, 
+      &quot;ad_idx_queues&quot;:1, --&gt; Multiplier for action indexing queues
       &quot;max_autoscale&quot;:4, --&gt; Max number of readers to autoscale
       &quot;auto_scale_trigger&quot;:20000 --&gt; Number of itens on queue to trigger autoscale
    },
    &quot;indexer&quot;:{ --&gt; Indexer configuration
-      &quot;start_on&quot;:0, --&gt; Block number to start indexing on. O start from begining
-      &quot;stop_on&quot;:0,  --&gt; Stop indexing on block number. 0 Keep indexing
-      &quot;rewrite&quot;:false, --&gt; Overwrite indexed blocks when start indexing again.
-      &quot;purge_queues&quot;:true,
+      &quot;start_on&quot;:0, --&gt; Start indexing on block (0=disable)
+      &quot;stop_on&quot;:0,  --&gt; Stop indexing on block  (0=disable)
+      &quot;rewrite&quot;:false, --&gt;Force rewrite the target replay range
+      &quot;purge_queues&quot;:true, --&gt; Clear rabbitmq queues before starting the indexer
       &quot;live_reader&quot;:false, --&gt; Enable live reader
-      &quot;live_only_mode&quot;:false,
+      &quot;live_only_mode&quot;:false, --&gt; Only reads realtime data serially
       &quot;abi_scan_mode&quot;:true,
-      &quot;fetch_block&quot;:true,
-      &quot;fetch_traces&quot;:true,
-      &quot;disable_reading&quot;:false,
+      &quot;fetch_block&quot;:true, --&gt; Request full blocks from the state history plugin
+      &quot;fetch_traces&quot;:true, --&gt; Request traces from the state history plugin
+      &quot;disable_reading&quot;:false, --&gt; Completely disable block reading, for lagged queue processing
       &quot;disable_indexing&quot;:false,
-      &quot;process_deltas&quot;:true,
+      &quot;process_deltas&quot;:true, --&gt; Read table deltas
       &quot;repair_mode&quot;:false
    },
    &quot;features&quot;:{
@@ -642,14 +642,14 @@
          &quot;userres&quot;:false,
          &quot;delband&quot;:false
       },
-      &quot;index_deltas&quot;:true,
-      &quot;index_transfer_memo&quot;:true,
-      &quot;index_all_deltas&quot;:true
+      &quot;index_deltas&quot;:true, --&gt; Index common table deltas (see delta on definitions/mappings)
+      &quot;index_transfer_memo&quot;:true, --&gt; Index transfers memo
+      &quot;index_all_deltas&quot;:true --&gt; Index all table deltas
    },
    &quot;prefetch&quot;:{
-      &quot;read&quot;:50,
-      &quot;block&quot;:100,
-      &quot;index&quot;:500
+      &quot;read&quot;:50, --&gt; Stage 1 prefecth size
+      &quot;block&quot;:100, --&gt; Stage 2 prefecth size
+      &quot;index&quot;:500 --&gt; Stage 3 prefecth size
    },
    &quot;experimental&quot;:{
       &quot;PATCHED_SHIP&quot;:false
@@ -756,6 +756,11 @@ The next step is to edit the file as the following:</p>
   }
 }
 </code></pre>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For multiple chains, you should have one config file for each chain.</p>
+</div>
                 
                   
                 
