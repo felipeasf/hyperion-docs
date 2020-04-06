@@ -1,5 +1,8 @@
 # Hyperion Open History Endpoint List
 
+!!!tip
+    Check the endpoint status at [https://bloks.io/hyperion](https://bloks.io/hyperion)
+
 ### EOS
 - http://api.eossweden.org/v2/docs
 - https://mainnet.eosn.io/v2/docs
