@@ -344,6 +344,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#multiple-chains-configuration" class="md-nav__link">
+    Multiple chains configuration
+  </a>
+  
+</li>
+      
       
       
       
@@ -517,6 +524,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#multiple-chains-configuration" class="md-nav__link">
+    Multiple chains configuration
+  </a>
+  
+</li>
+      
       
       
       
@@ -538,13 +552,28 @@
                 
                   <h1>Ecosystem</h1>
                 
-                <h4 id="detailed-description-of-the-ecosystemconfigjs">Detailed description of the ecosystem.config.js</h4>
+                <h3 id="detailed-description-of-the-ecosystemconfigjs">Detailed description of the ecosystem.config.js</h3>
+<pre><code class="javascript">const {addApiServer, addIndexer} = require(&quot;./definitions/ecosystem_settings&quot;);
+
+module.exports = {
+    apps: [
+        addIndexer('eos'), // Index chain name
+        addApiServer('eos', 1) // API chain name, API threads number
+    ]
+};
+</code></pre>
+
+<h3 id="multiple-chains-configuration">Multiple chains configuration</h3>
+<p>To setup multiple Indexers and/or APIs, just add then inside the <code>apps</code> square brackets:</p>
 <pre><code class="javascript">const {addApiServer, addIndexer} = require(&quot;./definitions/ecosystem_settings&quot;);
 
 module.exports = {
     apps: [
         addIndexer('eos'),
-        addApiServer('eos', 1)
+        addIndexer('wax'),
+        addIndexer('bos'),
+        addApiServer('eos', 1),
+        addApiServer('bos', 1) 
     ]
 };
 </code></pre>
