@@ -28,6 +28,16 @@ cluster.name: myCluster
 bootstrap.memory_lock: true
 ```
 
+!!! warning  
+    Setting `bootstrap.memory_lock: true` will use all your RAM on startup. This is optional.
+    This also might cause the JVM or shell session to exit if it tries to allocate more memory than is available!
+    
+After starting Elasticsearch, you can see whether this setting was applied successfully by checking the value of mlockall in the output from this request:
+
+````
+GET _nodes?filter_path=**.mlockall
+```` 
+
 ##### 2. Edit `/etc/elasticsearch/jvm.options`
 
 ```
@@ -40,7 +50,6 @@ bootstrap.memory_lock: true
 
 ##### 3. Allow memlock
 run `sudo systemctl edit elasticsearch` and add the following lines
-
 
 ```
 [Service]
