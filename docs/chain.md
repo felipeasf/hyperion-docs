@@ -108,6 +108,7 @@
 #### Example
 
 Let's suppose that we gonna start Indexing the EOS Mainnet with:
+
  - Locally exposed API
  - 2 Readers
  - 2 Deserializer Queues

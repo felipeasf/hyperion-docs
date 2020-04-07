@@ -20,7 +20,9 @@ nav:
       - Getting Started: howtouse.md
       - Stream Client: stream_client.md
       - Endpoint List: endpoint.md
-    - API Reference: api.md
+    - API Reference:
+        - v2: v2.md
+        - v1 compatible: v1.md
     - Troubleshooting:
       - Kibana: kibana.md
       - RabbitMQ: rabbit.md
@@ -32,5 +34,14 @@ theme:
   palette:
     primary: 'Blue Grey'
     accent: 'Blue Grey'
-  logo:
-    icon: 'history'
+  logo: 'img/logo.png'
+  favicon: 'img/logo.png'
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/eosrio'
+    - type: 'twitter'
+      link: 'https://twitter.com/eosriobrazil'
+    - type: 'telegram'
+      link: 'https://t.me/eosrio'

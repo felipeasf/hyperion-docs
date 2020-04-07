@@ -34,15 +34,16 @@
 ````
 #### Example:
 In this example we have an connection.json file with:
-- Local RabbitMQ
-    - user: admin
-    - pass: 123456
-- Local Elasticsearch
-    - no user
-    - no password
-- Local Reddis
-- Remote EOS Mainnet state history
-- Remote WAX state history
+
+  - Local RabbitMQ
+      - user: admin
+      - pass: 123456
+  - Local Elasticsearch
+      - no user
+      - no password
+  - Local Reddis
+  - Remote EOS Mainnet state history
+  - Remote WAX state history
 
 The first step is to make a copy of the config file and rename it: `example-connections.json` to `connections.json`.
 The next step is to edit the file as the following:
@@ -74,12 +75,11 @@ The next step is to edit the file as the following:
       "ship": "ws://127.0.0.1:8080",
       "WS_ROUTER_PORT": 7001
     },
-    "wax": {
-      "name": "WAX Mainnet",
-      "chain_id": "1064487b3cd1a897ce03ae5b6a865651747e2e152090f99c1d19d44e01aea5a4",
-      "http": "https://wax.eosrio.io",
-      "ship": "ws://192.168.0.138:8033",
-      "ship2": "ws://188.0.217.70:8080",
+    "sample": {
+      "name": "Sample Mainnet",
+      "chain_id": "9473887b3cd1a897ce03ae5b6a865651747e2e152090f99c1d19d4adf73238fas",
+      "http": "https://sample.io",
+      "ship": "ws://192.168.0.1:8080",
       "WS_ROUTER_HOST": "127.0.0.1",
       "WS_ROUTER_PORT": 8034
     }
