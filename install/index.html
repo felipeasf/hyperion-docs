@@ -31,7 +31,7 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../img/logo.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
@@ -96,7 +96,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href=".." title="Hyperion" class="md-header-nav__button md-logo">
           
-            <i class="md-icon">history</i>
+            <img src="../img/logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -188,7 +188,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href=".." title="Hyperion" class="md-nav__button md-logo">
       
-        <i class="md-icon">history</i>
+        <img src="../img/logo.png" width="48" height="48">
       
     </a>
     Hyperion
@@ -332,29 +332,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-disable-swap" class="md-nav__link">
-    3. Disable swap
+  <a href="#3-allow-memlock" class="md-nav__link">
+    3. Allow memlock
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-allow-memlock" class="md-nav__link">
-    4. Allow memlock
+  <a href="#4-start-elasticsearch-and-check-the-logs-verify-if-the-memory-lock-was-successful" class="md-nav__link">
+    4. Start elasticsearch and check the logs (verify if the memory lock was successful)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-start-elasticsearch-and-check-the-logs-verify-if-the-memory-lock-was-successful" class="md-nav__link">
-    5. Start elasticsearch and check the logs (verify if the memory lock was successful)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-test-the-rest-api" class="md-nav__link">
-    6. Test the REST API
+  <a href="#5-test-the-rest-api" class="md-nav__link">
+    5. Test the REST API
   </a>
   
 </li>
@@ -508,47 +501,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#kibana-installation" class="md-nav__link">
-    Kibana Installation
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-get-the-binary" class="md-nav__link">
-    1. Get the binary
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-install_1" class="md-nav__link">
-    2. install
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-change-supervised-to-systemd_1" class="md-nav__link">
-    3. Change supervised to systemd
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-open-and-test-kibana" class="md-nav__link">
-    4. Open and test Kibana
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#nodeos-configini" class="md-nav__link">
     nodeos config.ini
   </a>
@@ -588,8 +540,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#setup-indices-and-aliases" class="md-nav__link">
-    Setup Indices and Aliases
+  <a href="#setup" class="md-nav__link">
+    Setup
   </a>
   
 </li>
@@ -762,10 +714,46 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../api/" title="API Reference" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
       API Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        API Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../v2/" title="v2" class="md-nav__link">
+      v2
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../v1/" title="v1 compatible" class="md-nav__link">
+      v1 compatible
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -888,29 +876,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-disable-swap" class="md-nav__link">
-    3. Disable swap
+  <a href="#3-allow-memlock" class="md-nav__link">
+    3. Allow memlock
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-allow-memlock" class="md-nav__link">
-    4. Allow memlock
+  <a href="#4-start-elasticsearch-and-check-the-logs-verify-if-the-memory-lock-was-successful" class="md-nav__link">
+    4. Start elasticsearch and check the logs (verify if the memory lock was successful)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-start-elasticsearch-and-check-the-logs-verify-if-the-memory-lock-was-successful" class="md-nav__link">
-    5. Start elasticsearch and check the logs (verify if the memory lock was successful)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-test-the-rest-api" class="md-nav__link">
-    6. Test the REST API
+  <a href="#5-test-the-rest-api" class="md-nav__link">
+    5. Test the REST API
   </a>
   
 </li>
@@ -1064,47 +1045,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#kibana-installation" class="md-nav__link">
-    Kibana Installation
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-get-the-binary" class="md-nav__link">
-    1. Get the binary
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-install_1" class="md-nav__link">
-    2. install
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-change-supervised-to-systemd_1" class="md-nav__link">
-    3. Change supervised to systemd
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-open-and-test-kibana" class="md-nav__link">
-    4. Open and test Kibana
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#nodeos-configini" class="md-nav__link">
     nodeos config.ini
   </a>
@@ -1144,8 +1084,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#setup-indices-and-aliases" class="md-nav__link">
-    Setup Indices and Aliases
+  <a href="#setup" class="md-nav__link">
+    Setup
   </a>
   
 </li>
@@ -1216,9 +1156,9 @@
 <li><a href="https://www.elastic.co/downloads/elasticsearch">Elasticsearch 7.4.X</a></li>
 <li><a href="https://www.rabbitmq.com/install-debian.html">RabbitMQ</a></li>
 <li><a href="https://redis.io/topics/quickstart">Redis</a></li>
-<li><a href="https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions">Node.js v12</a></li>
+<li><a href="https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions">Node.js v13</a></li>
 <li><a href="http://pm2.keymetrics.io/docs/usage/quick-start/">PM2</a></li>
-<li>Nodeos 1.8.4 w/ state_history_plugin and chain_api_plugin</li>
+<li>Nodeos 1.8+ w/ state_history_plugin and chain_api_plugin</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1242,28 +1182,19 @@ bootstrap.memory_lock: true
 -Xmx16g
 </code></pre>
 
-<h5 id="3-disable-swap">3. Disable swap</h5>
-<ul>
-<li>run <code>swapoff -a</code> this will immediately disable swap</li>
-<li>remove any swap entry from /etc/fstab</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Identify configured swap devices and files with cat /proc/swaps</p>
-</div>
-<h5 id="4-allow-memlock">4. Allow memlock</h5>
+<h5 id="3-allow-memlock">3. Allow memlock</h5>
 <p>run <code>sudo systemctl edit elasticsearch</code> and add the following lines</p>
 <pre><code>[Service]
 LimitMEMLOCK=infinity
 </code></pre>
 
-<h5 id="5-start-elasticsearch-and-check-the-logs-verify-if-the-memory-lock-was-successful">5. Start elasticsearch and check the logs (verify if the memory lock was successful)</h5>
+<h5 id="4-start-elasticsearch-and-check-the-logs-verify-if-the-memory-lock-was-successful">4. Start elasticsearch and check the logs (verify if the memory lock was successful)</h5>
 <pre><code class="bash">sudo service elasticsearch start
 sudo less /var/log/elasticsearch/myCluster.log
 sudo systemctl enable elasticsearch
 </code></pre>
 
-<h5 id="6-test-the-rest-api">6. Test the REST API</h5>
+<h5 id="5-test-the-rest-api">5. Test the REST API</h5>
 <p><code>curl http://localhost:9200</code></p>
 <pre><code class="json">{
   &quot;name&quot; : &quot;ip-172-31-5-121&quot;,
@@ -1340,7 +1271,7 @@ the config file if you want to listen to other network.</p>
 
 <h4 id="nodejs">NodeJS</h4>
 <h5 id="1-install-the-nodejs-source">1. Install the nodejs source</h5>
-<pre><code class="bash">curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+<pre><code class="bash">curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 </code></pre>
 
 <h5 id="2-install">2. Install</h5>
@@ -1356,25 +1287,10 @@ the config file if you want to listen to other network.</p>
 <pre><code class="bash">sudo pm2 startup
 </code></pre>
 
-<h4 id="kibana-installation">Kibana Installation</h4>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Check for the latest version on the <a href="https://www.elastic.co/downloads/kibana">official website</a></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Follow the detailed installation instructions on the <a href="https://www.elastic.co/downloads/kibana">official documentation</a></p>
 </div>
-<h5 id="1-get-the-binary">1. Get the binary</h5>
-<pre><code class="bash">wget https://artifacts.elastic.co/downloads/kibana/kibana-7.4.0-amd64.deb
-</code></pre>
-
-<h5 id="2-install_1">2. install</h5>
-<pre><code class="bash">sudo apt install ./kibana-7.4.0-amd64.deb
-</code></pre>
-
-<h5 id="3-change-supervised-to-systemd_1">3. Change supervised to <code>systemd</code></h5>
-<pre><code class="bash">sudo systemctl enable kibana
-</code></pre>
-
-<h5 id="4-open-and-test-kibana">4. Open and test Kibana</h5>
-<p><a href="http://localhost:5601">http://localhost:5601</a></p>
 <h4 id="nodeos-configini">nodeos config.ini</h4>
 <pre><code>state-history-dir = &quot;state-history&quot;
 trace-history = true
@@ -1443,74 +1359,9 @@ nano connections.json
 </code></pre>
 
 <p>For more details, refer to the <a href="../ecosystem/">ecosystem section</a></p>
-<h3 id="setup-indices-and-aliases">Setup Indices and Aliases</h3>
-<p>Load templates first by starting the Hyperion Indexer in preview mode <code>PREVIEW: 'true'</code></p>
-<p>Indices and aliases are created automatically using the <code>CREATE_INDICES</code> option (set it to your version suffix e.g, v1, v2, v3)
-If you want to create them manually, use the commands bellow on the kibana dev console</p>
-<pre><code>PUT mainnet-action-v1-000001
-PUT mainnet-abi-v1-000001
-PUT mainnet-block-v1-000001
-
-POST _aliases
-{
-  &quot;actions&quot;: [
-    {
-      &quot;add&quot;: {
-        &quot;index&quot;: &quot;mainnet-abi-v1-000001&quot;,
-        &quot;alias&quot;: &quot;mainnet-abi&quot;
-      }
-    },
-    {
-      &quot;add&quot;: {
-        &quot;index&quot;: &quot;mainnet-action-v1-000001&quot;,
-        &quot;alias&quot;: &quot;mainnet-action&quot;
-      }
-    },
-    {
-      &quot;add&quot;: {
-        &quot;index&quot;: &quot;mainnet-block-v1-000001&quot;,
-        &quot;alias&quot;: &quot;mainnet-block&quot;
-      }
-    }
-  ]
-}
-</code></pre>
-
-<p>Before starting to index actions into elasticsearch its required to do a ABI scan.
-Set the indexer section of the chain/CHAINNAME.config.json as the following: </p>
-<pre><code class="json">&quot;indexer&quot;:{ 
-      &quot;start_on&quot;:0,
-      &quot;stop_on&quot;:0,
-      &quot;rewrite&quot;:false,
-      &quot;purge_queues&quot;:true,
-      &quot;live_reader&quot;:false,
-      &quot;live_only_mode&quot;:false,
-      &quot;abi_scan_mode&quot;:true,
-      &quot;fetch_block&quot;:true,
-      &quot;fetch_traces&quot;:true,
-      &quot;disable_reading&quot;:false,
-      &quot;disable_indexing&quot;:false,
-      &quot;process_deltas&quot;:true,
-      &quot;repair_mode&quot;:false
-   },
-</code></pre>
-
-<p>Tune your configs to your specific hardware using the following settings:</p>
-<pre><code class="json">&quot;scaling&quot;:{
-      &quot;batch_size&quot;:10000,
-      &quot;queue_limit&quot;:50000,
-      &quot;readers&quot;:1,
-      &quot;ds_queues&quot;:1,
-      &quot;ds_threads&quot;:1,
-      &quot;ds_pool_size&quot;:1,
-      &quot;indexing_queues&quot;:1,
-      &quot;ad_idx_queues&quot;:1,
-      &quot;max_autoscale&quot;:4,
-      &quot;auto_scale_trigger&quot;:20000
-   },
-</code></pre>
-
-<p>For more details related to the chain configuration please, refer to the <a href="../chain/">chain section</a></p>
+<h3 id="setup">Setup</h3>
+<p>Explicar as configurações iniciais.</p>
+<p>Modificar os example.ecosystems...etc</p>
 <h3 id="start-and-stop">Start and Stop</h3>
 <p>We provide scripts to make simple the process of start and stop you Hyperion Indexer or API instance.
 But, you can also do it manually if you prefer. This section will cover both ways.</p>
@@ -1542,27 +1393,33 @@ Stop the EOS mainnet indexer</p>
 <pre><code>./stop.sh eos-indexer
 </code></pre>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Stop script wont stop Hyperion Indexer immediately, it will first flush the queues.
+This operation could take some time.
+If you want to stop immediately, you need to run the "Force stop command"</p>
+</div>
 <h4 id="commands">Commands</h4>
 <p>Start indexing</p>
-<pre><code>pm2 start --only Indexer --update-env
-pm2 logs Indexer
+<pre><code>pm2 start --only chain-indexer --update-env
+pm2 logs chain-indexer
 </code></pre>
 
 <p>Stop reading and wait for queues to flush</p>
-<pre><code>pm2 trigger Indexer stop
+<pre><code>pm2 trigger chain-indexer stop
 </code></pre>
 
 <p>Force stop</p>
-<pre><code>pm2 stop Indexer
+<pre><code>pm2 stop chain-indexer
 </code></pre>
 
 <p>Starting the API node</p>
-<pre><code>pm2 start --only API --update-env
-pm2 logs API
+<pre><code>pm2 start --only chain-api --update-env
+pm2 logs chain-api
 </code></pre>
 
 <h3 id="api-reference">API Reference</h3>
-<p>API Reference: <a href="../api/">API section</a></p>
+<p>API Reference: <a href="api.md">API section</a></p>
 <p>Example: <a href="https://eos.hyperion.eosrio.io/v2/docs">OpenAPI Docs</a></p>
                 
                   
@@ -1627,6 +1484,17 @@ pm2 logs API
           Material for MkDocs</a>
       </div>
       
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/eosrio" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/eosriobrazil" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://t.me/eosrio" class="md-footer-social__link fa fa-telegram"></a>
+    
+  </div>
+
     </div>
   </div>
 </footer>

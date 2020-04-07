@@ -31,7 +31,7 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <link rel="shortcut icon" href="img/logo.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
@@ -96,7 +96,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="." title="Hyperion" class="md-header-nav__button md-logo">
           
-            <i class="md-icon">history</i>
+            <img src="img/logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -188,7 +188,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="." title="Hyperion" class="md-nav__button md-logo">
       
-        <i class="md-icon">history</i>
+        <img src="img/logo.png" width="48" height="48">
       
     </a>
     Hyperion
@@ -502,10 +502,46 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="api/" title="API Reference" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
       API Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        API Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="v2/" title="v2" class="md-nav__link">
+      v2
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="v1/" title="v1 compatible" class="md-nav__link">
+      v1 compatible
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -725,8 +761,8 @@ at least one ES node for the queries and all other services for full healthcheck
 <h4 id="25-eosio-state-history">2.5 - EOSIO State History</h4>
 <p>Nodeos plugin used to collect action traces and state deltas. Provides data via websocket to the indexer</p>
 <h3 id="3-how-to-use">3. How to use</h3>
-<h4 id="31-for-providers">3.1 For Providers</h4>
-<h4 id="32-for-developers">3.2 For Developers</h4>
+<h4 id="31-for-providers">3.1 <a href="install/">For Providers</a></h4>
+<h4 id="32-for-developers">3.2 <a href="howtouse/">For Developers</a></h4>
                 
                   
                 
@@ -776,6 +812,17 @@ at least one ES node for the queries and all other services for full healthcheck
           Material for MkDocs</a>
       </div>
       
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/eosrio" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/eosriobrazil" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://t.me/eosrio" class="md-footer-social__link fa fa-telegram"></a>
+    
+  </div>
+
     </div>
   </div>
 </footer>

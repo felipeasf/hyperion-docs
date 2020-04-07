@@ -31,7 +31,7 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../img/logo.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
@@ -96,7 +96,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href=".." title="Hyperion" class="md-header-nav__button md-logo">
           
-            <i class="md-icon">history</i>
+            <img src="../img/logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -188,7 +188,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href=".." title="Hyperion" class="md-nav__button md-logo">
       
-        <i class="md-icon">history</i>
+        <img src="../img/logo.png" width="48" height="48">
       
     </a>
     Hyperion
@@ -432,10 +432,46 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../api/" title="API Reference" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
       API Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        API Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../v2/" title="v2" class="md-nav__link">
+      v2
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../v1/" title="v1 compatible" class="md-nav__link">
+      v1 compatible
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -586,16 +622,22 @@
 </code></pre>
 
 <h4 id="example">Example:</h4>
-<p>In this example we have an connection.json file with:
-- Local RabbitMQ
-    - user: admin
-    - pass: 123456
-- Local Elasticsearch
-    - no user
-    - no password
-- Local Reddis
-- Remote EOS Mainnet state history
-- Remote WAX state history</p>
+<p>In this example we have an connection.json file with:</p>
+<ul>
+<li>Local RabbitMQ<ul>
+<li>user: admin</li>
+<li>pass: 123456</li>
+</ul>
+</li>
+<li>Local Elasticsearch<ul>
+<li>no user</li>
+<li>no password</li>
+</ul>
+</li>
+<li>Local Reddis</li>
+<li>Remote EOS Mainnet state history</li>
+<li>Remote WAX state history</li>
+</ul>
 <p>The first step is to make a copy of the config file and rename it: <code>example-connections.json</code> to <code>connections.json</code>.
 The next step is to edit the file as the following:</p>
 <pre><code class="json">{
@@ -624,12 +666,11 @@ The next step is to edit the file as the following:</p>
       &quot;ship&quot;: &quot;ws://127.0.0.1:8080&quot;,
       &quot;WS_ROUTER_PORT&quot;: 7001
     },
-    &quot;wax&quot;: {
-      &quot;name&quot;: &quot;WAX Mainnet&quot;,
-      &quot;chain_id&quot;: &quot;1064487b3cd1a897ce03ae5b6a865651747e2e152090f99c1d19d44e01aea5a4&quot;,
-      &quot;http&quot;: &quot;https://wax.eosrio.io&quot;,
-      &quot;ship&quot;: &quot;ws://192.168.0.138:8033&quot;,
-      &quot;ship2&quot;: &quot;ws://188.0.217.70:8080&quot;,
+    &quot;sample&quot;: {
+      &quot;name&quot;: &quot;Sample Mainnet&quot;,
+      &quot;chain_id&quot;: &quot;9473887b3cd1a897ce03ae5b6a865651747e2e152090f99c1d19d4adf73238fas&quot;,
+      &quot;http&quot;: &quot;https://sample.io&quot;,
+      &quot;ship&quot;: &quot;ws://192.168.0.1:8080&quot;,
       &quot;WS_ROUTER_HOST&quot;: &quot;127.0.0.1&quot;,
       &quot;WS_ROUTER_PORT&quot;: 8034
     }
@@ -699,6 +740,17 @@ The next step is to edit the file as the following:</p>
           Material for MkDocs</a>
       </div>
       
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/eosrio" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/eosriobrazil" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://t.me/eosrio" class="md-footer-social__link fa fa-telegram"></a>
+    
+  </div>
+
     </div>
   </div>
 </footer>
