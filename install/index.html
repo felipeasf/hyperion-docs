@@ -96,7 +96,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href=".." title="Hyperion" class="md-header-nav__button md-logo">
           
-            <img src="../img/logo.png" width="24" height="24">
+            <i class="md-icon">home</i>
           
         </a>
       </div>
@@ -188,7 +188,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href=".." title="Hyperion" class="md-nav__button md-logo">
       
-        <img src="../img/logo.png" width="48" height="48">
+        <i class="md-icon">home</i>
       
     </a>
     Hyperion
@@ -1153,7 +1153,7 @@
 <h3 id="dependencies">Dependencies</h3>
 <p>This setup has only been tested with Ubuntu 18.04, but should work with other OS versions too</p>
 <ul>
-<li><a href="https://www.elastic.co/downloads/elasticsearch">Elasticsearch 7.4.X</a></li>
+<li><a href="https://www.elastic.co/downloads/elasticsearch">Elasticsearch 7.6.X</a></li>
 <li><a href="https://www.rabbitmq.com/install-debian.html">RabbitMQ</a></li>
 <li><a href="https://redis.io/topics/quickstart">Redis</a></li>
 <li><a href="https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions">Node.js v13</a></li>
@@ -1176,8 +1176,9 @@ bootstrap.memory_lock: true
 
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Setting <code>bootstrap.memory_lock: true</code> will use all your RAM on startup. This is optional.
-This also might cause the JVM or shell session to exit if it tries to allocate more memory than is available!</p>
+<p>Setting <code>bootstrap.memory_lock: true</code> will try to use all the RAM configured for JVM (check next step) on startup.
+This could crash if you allocate more RAM tham available on the system. Setting mem_lock as <code>false</code>, might cause the JVM or shell session 
+to exit if elasticsearch tries to allocate more memory than is available!</p>
 </div>
 <p>After starting Elasticsearch, you can see whether this setting was applied successfully by checking the value of mlockall in the output from this request:</p>
 <pre><code>GET _nodes?filter_path=**.mlockall
