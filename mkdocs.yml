@@ -34,7 +34,8 @@ theme:
   palette:
     primary: 'Blue Grey'
     accent: 'Blue Grey'
-  logo: 'img/logo.png'
+  logo:
+    icon: "home"
   favicon: 'img/logo.png'
 
 extra:
